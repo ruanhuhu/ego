@@ -173,7 +173,6 @@ body {
     background: #efefef;
 }
 
-
 .f-cb:after {
     clear: both;
     content: '.';
@@ -182,25 +181,31 @@ body {
     font-size: 0;
     visibility: hidden;
 }
-.f-fr{
+
+.f-fr {
     float: right;
 }
+
 .f-pr {
     position: relative;
     zoom: 1;
 }
+
 .f-dn {
     display: none;
 }
-.f-vh{
+
+.f-vh {
     visibility: hidden;
 }
+
 .f-thide {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: normal;
 }
+
 .f-thide2,
 .f-thide6 {
     overflow: hidden;
@@ -208,16 +213,18 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
+
 .f-thide2 {
     -webkit-line-clamp: 2;
 }
+
 .f-thide6 {
     -webkit-line-clamp: 6;
 }
+
 .f-ofy-hd {
     overflow-y: hidden;
 }
-
 
 /*icon*/
 
@@ -226,6 +233,7 @@ body {
     background-repeat: no-repeat;
     cursor: pointer;
 }
+
 .u-icon-search {
     position: absolute;
     top: 50%;
@@ -235,6 +243,7 @@ body {
     right: 11px;
     background-position: -185px -205px;
 }
+
 .u-icon-user {
     display: inline-block;
     width: 15px;
@@ -243,6 +252,7 @@ body {
     background-position: -5px -100px;
     vertical-align: middle;
 }
+
 .u-icon-female {
     display: inline-block;
     width: 11px;
@@ -250,6 +260,7 @@ body {
     vertical-align: middle;
     background-position: -165px -100px;
 }
+
 .u-icon-male {
     display: inline-block;
     width: 14px;
@@ -257,6 +268,7 @@ body {
     vertical-align: middle;
     background-position: -185px -100px;
 }
+
 .u-icon-down {
     display: inline-block;
     width: 16px;
@@ -264,6 +276,7 @@ body {
     margin-top: 35px;
     background-position: -45px -100px;
 }
+
 .u-icon-diamond,
 .u-icon-star,
 .u-icon-work,
@@ -276,41 +289,49 @@ body {
     left: 47px;
     transform: translate(-50%, -50%);
 }
+
 .u-icon-diamond {
     width: 37px;
     height: 32px;
     background-position: -5px -120px;
 }
+
 .u-icon-star {
     width: 40px;
     height: 38px;
     background-position: -55px -120px;
 }
+
 .u-icon-work {
     width: 34px;
     height: 36px;
     background-position: -105px -120px;
 }
+
 .u-icon-activity {
     width: 37px;
     height: 37px;
     background-position: -105px -120px;
 }
+
 .u-icon-love {
     width: 37px;
     height: 32px;
     background-position: -5px -165px;
 }
+
 .u-icon-fans {
     width: 46px;
     height: 27px;
     background-position: -50px -165px;
 }
+
 .u-icon-copy {
     width: 35px;
     height: 35px;
     background-position: -104px -165px;
 }
+
 .u-icon-moreright {
     display: inline-block;
     width: 30px;
@@ -319,6 +340,7 @@ body {
     vertical-align: middle;
     background-position: -5px -205px;
 }
+
 .u-icon-actlogo {
     display: inline-block;
     width: 52px;
@@ -327,11 +349,13 @@ body {
     vertical-align: -16px;
     background-position: -155px -165px;
 }
+
 .u-icon-actdate {
     width: 85px;
     height: 92px;
     background-position: -129px -240px;
 }
+
 .u-icon-ok {
     display: inline-block;
     width: 9px;
@@ -339,6 +363,7 @@ body {
     margin-right: 6px;
     background-position: -65px -100px;
 }
+
 .u-icon-follow {
     display: inline-block;
     width: 10px;
@@ -346,6 +371,7 @@ body {
     margin-right: 6px;
     background-position: -205px -100px;
 }
+
 .u-icon-sideavatar {
     position: absolute;
     width: 101px;
@@ -354,19 +380,22 @@ body {
     left: -16px;
     background-position: -10px -335px;
 }
+
 .u-icon-moredown {
     display: inline-block;
     width: 30px;
     height: 30px;
     background-position: -45px -205px;
 }
+
 .u-icon-close {
     display: inline-block;
     width: 16px;
     height: 16px;
     background-position: -160px -205px;
 }
-.u-icon-checkbox{
+
+.u-icon-checkbox {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -374,14 +403,16 @@ body {
     margin: 0 7px 0 0;
     background-position: -210px -205px;
 }
-.u-icon-checkboxchecked{
+
+.u-icon-checkboxchecked {
     width: 15px;
     height: 15px;
     vertical-align: text-bottom;
     margin: 0 7px 0 0;
     background-position: -230px -205px;
 }
-.u-icon-radio{
+
+.u-icon-radio {
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -389,7 +420,8 @@ body {
     margin: 0 16px 0 0;
     background-position: -240px -100px;
 }
-.u-icon-radiochecked{
+
+.u-icon-radiochecked {
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -397,7 +429,8 @@ body {
     margin: 0 16px 0 0;
     background-position: -220px -100px;
 }
-.u-icon-error{
+
+.u-icon-error {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -405,41 +438,47 @@ body {
     vertical-align: text-bottom;
     background-position: -250px -205px;
 }
-.u-icon-dropdown{
+
+.u-icon-dropdown {
     position: absolute;
     top: 50%;
     right: 4px;
     width: 13px;
     height: 9px;
     margin-top: -4px;
-    background-position: -220px -165px;    
+    background-position: -220px -165px;
 }
-.u-icon-address{
+
+.u-icon-address {
     display: inline-block;
     right: 4px;
     width: 12px;
     height: 16px;
     vertical-align: text-bottom;
-    background-position: -145px -100px;     
+    background-position: -145px -100px;
 }
-.u-icon-edit{
+
+.u-icon-edit {
     float: right;
     width: 14px;
     height: 14px;
     margin-right: 10px;
     background-position: -105px -100px;
 }
-.u-icon-delete{
+
+.u-icon-delete {
     float: right;
     width: 14px;
     height: 14px;
     background-position: -125px -100px;
 }
+
 .icon-txt {
     font: 0/0 a;
     overflow: hidden;
 }
-.u-regmdlogo{
+
+.u-regmdlogo {
     margin: 39px 0 12px 106px;
     text-align: left;
 }
@@ -461,21 +500,25 @@ body {
     background-color: #fff;
     color: #5ed0ba;
 }
+
 .u-btn-primary {
     color: #fff;
     background-color: #5ed0ba;
 }
+
 .u-btn-link {
     color: #5ed0ba;
     background-color: #fff;
     border: 1px solid #fff;
 }
+
 .u-btn-act {
     width: 74px;
     height: 27px;
     line-height: 27px;
     margin-bottom: 12px;
 }
+
 .u-btn-sm {
     position: relative;
     width: 60px;
@@ -485,24 +528,25 @@ body {
     overflow: hidden;
 }
 
-
-.u-link{
+.u-link {
     color: #5ed0ba;
 }
-.u-line{
+
+.u-line {
     width: 720px;
     margin: 0 auto;
     border-bottom: 1px solid #e2e3e3;
 }
 
-
-#goregister:hover{
+#goregister:hover {
     color: #727171;
 }
+
 .z-follow {
     color: #5ed0ba;
     background: #fff;
 }
+
 .z-unfollow {
     color: #fff;
     background: #5ed0ba;
@@ -685,18 +729,34 @@ body {
     text-decoration: none;
 }
 
-
 /*slider*/
 .m-slider {
     position: relative;
     overflow: hidden;
     height: 100%;
+    width: 100%;
 }
 
-.m-slider .slides {
-    background: no-repeat 50%;
-    background-size: 100%;
-    height: 100%;
+.m-slider .slider_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity ease .5s;
+    -moz-transition: opacity ease .5s;
+    -ms-transition: opacity ease .5s;
+    -o-transition: opacity ease .5s;
+    transition: opacity ease .5s;
+}
+
+.m-slider .slider_img img {
+    width: 100vw;
+    height: calc(100vw / 2267 * 1535);
 }
 
 .m-cursor {
@@ -711,7 +771,7 @@ body {
     background: rgba(223, 223, 223, .3);
 }
 
-.m-cursor a {
+.m-cursor li {
     display: inline-block;
     box-sizing: border-box;
     width: 10px;
@@ -719,14 +779,15 @@ body {
     vertical-align: middle;
     border-radius: 5px;
     background: #dedfdf;
+    cursor: pointer;
 }
 
-.m-cursor>a+a {
+.m-cursor > li + li {
     margin-left: 10px;
 }
 
 .m-cursor .z-active,
-.m-cursor a:hover {
+.m-cursor li:hover {
     background: #5ed0ba;
 }
 
@@ -745,14 +806,14 @@ body {
     background-color: #fff;
 }
 
-.m-modal .modal-head{
+.m-modal .modal-head {
     position: relative;
     font-size: 14px;
     color: #5ed0ba;
     padding: 12px 0 10px 11px;
 }
 
-.m-modal .modal-head:after{
+.m-modal .modal-head:after {
     position: absolute;
     content: ' ';
     bottom: 0;
@@ -760,6 +821,7 @@ body {
     right: 8px;
     border-bottom: 1px solid #eee;
 }
+
 .m-modal .close {
     position: absolute;
     right: 10px;
@@ -775,14 +837,14 @@ body {
     text-align: center;
 }
 
-.m-modal .modal-foot{
+.m-modal .modal-foot {
     min-width: 320px;
     margin: 0 auto;
     margin-right: -35px;
     text-align: center;
 }
 
-.m-modal .modal-foot button{
+.m-modal .modal-foot button {
     box-sizing: border-box;
     width: 80px;
     height: 30px;
@@ -791,9 +853,9 @@ body {
     margin-right: 35px;
 }
 
-.m-modal .modal-foot button:hover{
+.m-modal .modal-foot button:hover {
     color: #fff;
-    background-color: #5ed0ba;   
+    background-color: #5ed0ba;
 }
 
 .m-modal-mask {
@@ -807,83 +869,87 @@ body {
     z-index: 999;
 }
 
-.m-modal-mask.visible{
+.m-modal-mask.visible {
     background: rgba(0, 0, 0, .2);
 }
 
 .m-form-1 ::-webkit-input-placeholder {
     color: #7ad7c4;
 }
+
 /*IE10+*/
-.m-form-1 :-ms-input-placeholder { 
+.m-form-1 :-ms-input-placeholder {
     color: #7ad7c4;
 }
+
 /*Firefox4-18*/
-.m-form-1 :-moz-placeholder { 
+.m-form-1 :-moz-placeholder {
     color: #7ad7c4;
 }
+
 /*Firefox19+*/
 .m-form-1 ::-moz-placeholder {
     color: #7ad7c4;
 }
 
-.m-form-1 ::placeholder{
+.m-form-1 ::placeholder {
     color: #7ad7c4;
 }
 
-.u-checkbox input[type="checkbox"]{
+.u-checkbox input[type="checkbox"] {
     display: none;
 }
 
-.u-checkbox .u-icon-checkboxchecked{
+.u-checkbox .u-icon-checkboxchecked {
     display: none;
 }
 
-.u-checkbox-remember input[type="checkbox"]:checked~.u-icon-checkboxchecked{
+.u-checkbox-remember input[type="checkbox"]:checked ~ .u-icon-checkboxchecked {
     display: inline-block;
 }
 
-.u-checkbox-remember input[type="checkbox"]:checked~.u-icon-checkbox{
+.u-checkbox-remember input[type="checkbox"]:checked ~ .u-icon-checkbox {
     display: none;
 }
 
-.modal-tt{
+.modal-tt {
     margin: 44px 32px 30px;
     position: relative;
     text-align: left;
     font-size: 12px;
 }
-.modal-tt .wlcm{
+
+.modal-tt .wlcm {
     position: relative;
     color: #5ed0ba;
     font-size: 20px;
 }
 
-.modal-tt .goreg{
+.modal-tt .goreg {
     position: absolute;
     right: 0;
     bottom: 0;
     vertical-align: bottom;
 }
 
-.m-form{
+.m-form {
     width: 343px;
     position: relative;
     text-align: left;
     font-size: 12px;
 }
 
-#loginform{
+#loginform {
     margin: 0 32px 34px 32px;
 }
 
-.m-form .u-formitem{
+.m-form .u-formitem {
     height: 40px;
     line-height: 40px;
     margin-top: 10px;
 }
 
-.m-form .formitem-tt{
+.m-form .formitem-tt {
     font-size: 12px;
     height: 40px;
     line-height: 40px;
@@ -893,7 +959,7 @@ body {
     vertical-align: top;
 }
 
-.m-form .u-ipt{
+.m-form .u-ipt {
     width: 100%;
     box-sizing: border-box;
     height: 100%;
@@ -902,13 +968,13 @@ body {
     padding-left: 17px;
 }
 
-.m-form .u-formitem-1{
+.m-form .u-formitem-1 {
     position: relative;
     height: 15px;
     line-height: 15px;
 }
 
-.m-form-2 .formitem-ct{
+.m-form-2 .formitem-ct {
     font-size: 12px;
     line-height: 40px;
     height: 40px;
@@ -917,28 +983,28 @@ body {
     width: 265px;
 }
 
-.m-form-2 .u-formitem{
+.m-form-2 .u-formitem {
     font-size: 0px;
 }
 
-.m-form .forget{
+.m-form .forget {
     position: absolute;
     right: 0;
     bottom: 0;
 }
 
-.m-form .forget a{
+.m-form .forget a {
     color: #727171;
 }
 
-.m-form .u-formitem.u-error{
+.m-form .u-formitem.u-error {
     font-size: 12px;
     display: block;
     margin-top: 8px;
     color: #e83828;
 }
 
-.m-form button[type="submit"]{
+.m-form button[type="submit"] {
     font-size: 15px;
     box-sizing: border-box;
     width: 100%;
@@ -947,45 +1013,47 @@ body {
     margin-top: 14px;
 }
 
-.m-form .u-ipt.u-error{
+.m-form .u-ipt.u-error {
     border-color: #f18379;
 }
 
-#registerform{
+#registerform {
     margin: 0 136px 42px 106px;
 }
 
-.m-form .formitem-ct-sex{
+.m-form .formitem-ct-sex {
     width: 94px;
     height: 100%;
     margin-left: 36px;
 }
 
-.u-radio input[type="radio"]{
+.u-radio input[type="radio"] {
     display: none;
 }
 
-.u-radio .u-icon-radiochecked{
+.u-radio .u-icon-radiochecked {
     display: none;
 }
 
-.u-radio-checked input[type="radio"]:checked~.u-icon-radiochecked{
+.u-radio-checked input[type="radio"]:checked ~ .u-icon-radiochecked {
     display: inline-block;
 }
 
-.u-radio-checked input[type="radio"]:checked~.u-icon-radio{
+.u-radio-checked input[type="radio"]:checked ~ .u-icon-radio {
     display: none;
 }
 
-.formitem-ct-validate .u-ipt{
+.formitem-ct-validate .u-ipt {
     height: 100%;
     padding-right: 95px;
 }
-.formitem-ct-validate{
+
+.formitem-ct-validate {
     position: relative;
     float: right;
 }
-#captchaimg{
+
+#captchaimg {
     position: absolute;
     right: 1px;
     top: 1px;
@@ -994,31 +1062,33 @@ body {
     border-left: 1px solid #5ed0ba;
 }
 
-#registerform .u-formitem-2{
+#registerform .u-formitem-2 {
     margin-top: 20px;
     font-size: 12px;
 
 }
 
-.u-formitem-2 label[for="agreement"] span{
+.u-formitem-2 label[for="agreement"] span {
     color: #2ea7e0;
 }
 
-#registerform button[type="submit"]{
+#registerform button[type="submit"] {
     margin-top: 21px;
 }
 
-.m-cascadeselect{
+.m-cascadeselect {
     font-size: 0;
     position: relative;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
 }
-.m-cascadeselect .m-select+.m-select{
+
+.m-cascadeselect .m-select + .m-select {
     margin-left: 15px;
 }
-.m-select{
+
+.m-select {
     font-size: 12px;
     position: relative;
     display: inline-block;
@@ -1031,20 +1101,19 @@ body {
     vertical-align: top;
 }
 
-
-.m-select .select-hd{
+.m-select .select-hd {
     padding-left: 10px;
     padding-right: 17px;
     cursor: pointer;
 }
 
-.m-select .select-val{
+.m-select .select-val {
     display: inline-block;
     width: 49px;
     overflow: hidden;
 }
 
-.m-select .select-op{
+.m-select .select-op {
     position: absolute;
     top: 39px;
     box-sizing: border-box;
@@ -1059,34 +1128,35 @@ body {
     cursor: default;
 }
 
-.m-select .select-op li{
+.m-select .select-op li {
     padding-left: 10px;
 }
 
-.m-select .select-op li, .m-select .select-val{
+.m-select .select-op li, .m-select .select-val {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: normal;
 }
-.m-select .select-op li:hover,.m-select .select-op .z-select{
+
+.m-select .select-op li:hover, .m-select .select-op .z-select {
     background-color: #eee;
 }
 
-.toggle input[type='radio']{
+.toggle input[type='radio'] {
     display: none;
 }
 
-.toggle input[type='radio']:checked + .u-btn{
+.toggle input[type='radio']:checked + .u-btn {
     background-color: #5ed0ba;
-    color: #fff; 
+    color: #fff;
 }
 
-.hover .u-btn:hover{
+.hover .u-btn:hover {
     background-color: #5ed0ba;
-    color: #fff; 
+    color: #fff;
 }
 
-.del-item-name{
+.del-item-name {
     color: #5ed0ba;
 }

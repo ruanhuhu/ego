@@ -6,10 +6,11 @@ if(!window.App || typeof window.App !== 'object'){
 
 /* 轮播 */
 (function(App) {
-    var template ='<div class="m-slider">\
-        <a><div class="slides"></div></a>\
-    </div>';
+    // var template ='<div class="m-slider">\
+    //     <a><div class="slides"></div></a>\
+    // </div>';
 
+    var template = '<div class="m-slider"></div>';
     /**
      * options 参数说明
      * {
@@ -21,31 +22,23 @@ if(!window.App || typeof window.App !== 'object'){
     function Slider(options) {
 
         _.extend(this, options);
-        this.container.style.overflow = 'hidden';
 
         // 内部数据结构
         this.imgLength = this.imgList.length;
         this.interval = this.interval || 5000;
-        this.index = this.index || 0;
 
         //组件节点
         this.slider = this._layout.cloneNode(true);
-        //pic this.slides = this.buildSlides();
-        this.slides = this.slider.querySelector('.slides'); //pic
+        this.slides = this.buildSlides();
         this.cursors = this.buildCursor();
 
         //初始化组件
         this.slider.addEventListener('mouseenter', this.stop.bind(this));
         this.slider.addEventListener('mouseleave', this.autoPlay.bind(this));
 
-        this.slides.style.backgroundImage = 'url('+this.imgList[this.index]+')';
-        this.slides.style.transition = "opacity ease-out .5s";
-        this.slides.style.opacity = 1;
-        _.addClass(this.cursors[this.index], 'z-active');
-
         //初始化动作
         this.container.appendChild(this.slider);
-        this.nav(this.index);
+        this.nav(this.initIndex || 0);
         this.autoPlay();
     }
 
@@ -53,12 +46,13 @@ if(!window.App || typeof window.App !== 'object'){
 
         _layout: _.html2node(template),
 
+        // 构建轮播图节点
         buildSlides: function() {
             var slides = document.createElement('ul');
             var html = '';
             for (var i = 0; i < this.imgLength; i++) {
                 html +=
-                    '<li class="slides">\
+                    '<li class="slider_img">\
                         <img src="' + this.imgList[i] + '">\
                     </li>';
             }
@@ -69,15 +63,15 @@ if(!window.App || typeof window.App !== 'object'){
             return slides.children;
         },
 
-        //构造指示器节点
+        // 构造指示器节点
         buildCursor: function() {
-            var cursor = document.createElement('div'),
+            var cursor = document.createElement('ul'),
                 html = '';
 
             cursor.className = 'm-cursor';
 
             for (var i = 0; i < this.imgLength; i++) {
-                html += '<a data-index="' + i + '"></a>';
+                html += '<li data-index="' + i + '"></li>';
             }
 
             cursor.innerHTML = html;
@@ -85,62 +79,65 @@ if(!window.App || typeof window.App !== 'object'){
 
             cursor.addEventListener('click', function(event) {
                 index = event.target.dataset.index;
-                if (index !== undefined && this.index !== index) {
-                    // this.nav(index);
-                    this.last = this.index;
-                    this.index = index;
-                    this.slides.style.backgroundImage = 'url('+this.imgList[this.index]+')';
-                    this.setCurrent();
+                if (index !== undefined) {
+                    this.nav(index);
                 }
             }.bind(this));
             return cursor.children;
         },
 
-        //自动播放
+        // 自动播放
         autoPlay: function() {
             this.timer = setInterval(function() {
                 this.next();
             }.bind(this), this.interval);
         },
 
-        //停止播放
+        // 停止播放
         stop: function() {
             clearInterval(this.timer);
         },
 
-        //下一页
+        // 下一页
         next: function() {
-            //为什么要模除？this.index取值不会超出imgLength?
             var index = (this.index + 1) % this.imgLength; //+1，index下一张
             this.nav(index);
         },
 
-        //跳到指定页
+        // 跳到指定页
         nav: function(index) { //给每个指示器li注册click nav事件
+            // 若未改变index, 则不做任何操作
             if (this.index === index) return;
+            // 保存上一页
             this.last = this.index;
             this.index = index;
+
             this.fade();
+            this.setCurrent();
         },
 
-        //设置cursor当前选中状态
+        // 设置当前选中状态
         setCurrent: function() {
-            _.delClass(this.cursors[this.last], 'z-active');
+            // 若存在上一页
+            if(typeof this.last !== 'undefined'){
+                // 除去上一节点的选中状态
+                _.delClass(this.slides[this.last], 'z-active');
+                _.delClass(this.cursors[this.last], 'z-active');
+            }
+            // 添加当前选中节点的选中状态
+            _.addClass(this.slides[this.index], 'z-active');
             _.addClass(this.cursors[this.index], 'z-active');
         },
 
-        //切换效果
+        // 切换效果
         fade: function() {
-            // var date1 = new Date(); console.log(date1.getTime());
-            this.slides.style.transition = "opacity ease-in .5s";
-            this.slides.style.opacity = 0.2;
-            setTimeout(function() {
-                this.slides.style.transition = "opacity ease-out .5s";
-                this.slides.style.opacity = 1;
-                this.slides.style.backgroundImage = 'url('+this.imgList[this.index]+')';
-                this.setCurrent();
-                // var date2 = new Date(); console.log(date2.getTime());
-            }.bind(this), 500);
+            // 若存在上一页
+            if(typeof this.last !== 'undefined'){
+                // 上一页隐藏
+                this.slides[this.last].style.opacity = 0;
+            }
+            // 当前页显示
+            this.slides[this.index].style.opacity = 1;
         }
     });
 
