@@ -1,1 +1,3 @@
-git .idea
+# Mac
+.idea/
+*/.idea/
