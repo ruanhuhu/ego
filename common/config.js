@@ -1,5 +1,5 @@
 // 基础url地址
-var BASE_URL = '';
+var BASE_URL = '/ego';
 // 页面路由
 var PAGES_URL = BASE_URL + '/html';
 // api 地址
