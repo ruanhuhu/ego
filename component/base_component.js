@@ -82,8 +82,9 @@ if (!window.App || typeof window.App !== 'object') {
 
     Tabs.prototype._highlight = function (index) {
         var tab = this.nTabs[index];
-        this.nThumb.style.width = tab.offsetWidth + 'px';
+        // 先设置偏移 再设置宽度； 否则先设置宽度 偏移会默认为0处高亮
         this.nThumb.style.left = tab.offsetLeft + 'px';
+        this.nThumb.style.width = tab.offsetWidth + 'px';
     };
 
     App.Tabs = Tabs;
