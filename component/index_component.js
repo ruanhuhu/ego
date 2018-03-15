@@ -902,12 +902,12 @@ if(!window.App || typeof window.App !== 'object'){
 
             // 订阅事件
             // this.on('loggedin', this.getStarlist.bind(this)); // 登录时，刷新明日之星列表
-            this.on('notLoggedin', this.getStarlist.bind(this)); // 登出时，刷新明日之星列表
+            // this.on('notLoggedin', this.getStarlist.bind(this)); // 登出时，刷新明日之星列表
         },
         getStarlist: function () {
             var urlMock = '';
             if(window.App.user.username !== undefined){
-                urlMock = '/api/users?getstarlist?Loggedin';
+                urlMock = '/api/users?getstarlist?loggedin';
             } else {
                 urlMock = '/api/users?getstarlist?notLoggedin';
             }
