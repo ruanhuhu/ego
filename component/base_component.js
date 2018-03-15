@@ -309,7 +309,7 @@ if (!window.App || typeof window.App !== 'object') {
             data: {},
             success: function (data) {
                 if (data.code === 200) {
-                    if (window.location.pathname === (BASE_URL + '/index.html') || window.location.pathname === BASE_URL) {
+                    if (window.location.pathname === (BASE_URL + '/index.html') || window.location.pathname === BASE_URL+'/') {
                         // 用于 StarList 中，点击关注时判断登录状态
                         window.App.user = {};
                         this.hide();
