@@ -553,7 +553,7 @@ if (!window.App || typeof window.App !== 'object') {
             container: this.layout,
             index: this.getTabIndex(),
             nTabData: [
-                {name: '首页', url: BASE_URL + '/index.html'},
+                {name: '首页', url: BASE_URL},
                 {name: '作品', url: BASE_URL + '/html/works/list.html'},
                 {name: '圈子', url: 'javascript:void(0);'},
                 {name: '奇思妙想', url: 'javascript:void(0);'}
@@ -601,13 +601,12 @@ if (!window.App || typeof window.App !== 'object') {
     //  获取tab的选中项的序号
     Nav.prototype.getTabIndex = function () {
         // 根据url 的path，决定 tab的index
-        switch (window.location.pathname.split('/')[2]) {
-            // 作品页    /html/works/list.html->['','html','works','list.html']
-            case 'works':
-                return 1;
-            // 首页（默认）
-            default:
-                return 0;
+        if(location.pathname.indexOf('/works') !== -1){
+            // 作品页
+            return 1;
+        } else {
+            // 首页
+            return 0;
         }
     };
 
@@ -623,7 +622,6 @@ if (!window.App || typeof window.App !== 'object') {
                 } else {
                     // 触发未登录事件
                     // this.emit('notLoggedin');
-
                     this.user.hide();
                     this.guest.show();
                 }
