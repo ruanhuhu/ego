@@ -11,8 +11,6 @@
             this.initNav();
             // 轮播图
             this.initSlider();
-            // 明日之星
-            this.initStarList();
             // 侧边栏排行榜tabs
             this.initRankingTabs();
         },
@@ -310,17 +308,18 @@
             this.nav.on('toLogin', this.initLoginModal.bind(this));
             // Nav->Guest 点击"注册"，初始化注册弹窗
             this.nav.on('toRegister', this.initRegisterModal.bind(this));
-            // Nav 初始化获取用户信息成功后触发 loggedin，刷新主页明日之星栏目的内容
+            // Nav 初始化获取用户信息成功后触发 loggedin，初始化登录后明日之星的内容
             this.nav.on('loggedin', function () {
+                this.initStarList();
+            }.bind(this));
+            // Nav 状态初始化获取登录用户信息失败后触发notLoggedin，初始化未登录明日之星内容
+            // 或 Nav->User 点击"退出"，触发notLoggedin，则刷新主页明日之星栏目的内容
+            this.nav.on('notLoggedin', function () {
                 if(this.starList){
                     this.starList.getStarlist();
                 } else {
                     this.initStarList();
                 }
-            }.bind(this));
-            // Nav->User 点击"退出"，刷新主页明日之星栏目的内容
-            this.nav.on('notLoggedin', function () {
-                this.starList.getStarlist();
             }.bind(this));
         },
 

@@ -590,7 +590,7 @@ if (!window.App || typeof window.App !== 'object') {
             this.emit('notLoggedin');
         }.bind(this));
 
-        // 注册事件
+        // 登录事件
         this.on('loggedin', function (user) {
             this.guest.hide();
             this.user.show(user);
@@ -610,7 +610,7 @@ if (!window.App || typeof window.App !== 'object') {
             return 0;
         }
     };
-
+    // 首次登录初始化状态
     Nav.prototype.initLoginStatus = function () {
         _.ajax({
             url: _.getApiUrl('/api/users?getloginuser'),
@@ -622,7 +622,7 @@ if (!window.App || typeof window.App !== 'object') {
                     this.emit('loggedin', data.result);
                 } else {
                     // 触发未登录事件
-                    // this.emit('notLoggedin');
+                    this.emit('notLoggedin');
                     this.user.hide();
                     this.guest.show();
                 }
