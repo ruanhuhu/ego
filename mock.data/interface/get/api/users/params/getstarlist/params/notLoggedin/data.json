@@ -1,0 +1,48 @@
+{
+    "code": 200,
+    "msg": "8epANyMf4P",
+    "result": [
+        {
+            "id": 64541,
+            "nickname": "67ZMRCbcLB",
+            "isFollow": false,
+            "workCount": 1,
+            "followCount": 12
+        },
+        {
+            "id": 65184,
+            "nickname": "Nxe8UStzoL",
+            "isFollow": false,
+            "workCount": 112,
+            "followCount": 3180
+        },
+        {
+            "id": 65755,
+            "nickname": "pt1MDC01Di",
+            "isFollow": false,
+            "workCount": 23,
+            "followCount": 87348
+        },
+        {
+            "id": 61752,
+            "nickname": "我是极品",
+            "isFollow": false,
+            "workCount": 53,
+            "followCount": 132345
+        },
+        {
+            "id": 63415,
+            "nickname": "哈哈哈哈哈哈",
+            "isFollow": false,
+            "workCount": 212,
+            "followCount": 33
+        },
+        {
+            "id": 65528,
+            "nickname": "才怪",
+            "isFollow": false,
+            "workCount": 45,
+            "followCount": 12341
+        }
+    ]
+}

@@ -1,0 +1,350 @@
+.g-body{
+	width: 1100px;
+	margin: 55px auto 50px auto;
+}
+
+#uploadform{
+	display: flex;
+	justify-content: space-between;
+}
+
+.g-main{
+	width: 771px;
+	background: #fff;
+	border: 1px solid #e0e1e1;
+}
+
+.g-aside{
+	box-sizing: border-box;
+	width: 315px;
+}
+
+.g-main .u-line{
+	width: 743px;
+
+}
+
+.u-formitem{
+	font-size: 0;
+	height: 68px;
+	line-height: 68px;
+	margin-left: 30px;
+}
+
+.u-formitem .u-tt{
+	font-size: 14px;
+	display: inline-block;	
+	width: 88px;
+}
+
+.u-formitem .u-cnt{
+	display: inline-block;
+}
+
+.u-formitem .u-btn{
+	margin-right: 32px; 
+}
+
+.u-formitem-1{
+	position: relative;
+	height: 90px;
+	margin-left: 0;
+	padding-left: 30px;
+	border-bottom: 1px solid #e0e1e1;
+}
+
+
+.u-formitem-1 .tips{
+	position: absolute;
+	font-size: 12px;
+	line-height: 34px;
+	color: #727171;
+	left: 118px;
+	bottom: 0;
+}
+
+
+#upload + .u-btn-upload{
+	width: 123px;
+}
+
+#upload + .u-btn-upload.disabled{
+	background-color: #ccc;
+	border-color: #d7d7d7;
+	cursor: default;
+}
+
+.uploadWorklist{
+	min-height: 100px;
+	background-color: #efefef;
+	border-bottom: 1px solid #e0e1e1;
+}
+
+.u-ipt{
+	border-style: none;
+	box-sizing: border-box;
+	border: 1px solid #5ed0ba;
+}
+
+.u-formitem-2{
+	margin-left: 0;
+	margin-bottom: 25px;
+	height: 38px;
+	line-height: 38px;
+}
+.u-formitem-2 .u-tt{
+	width: 76px;
+	vertical-align: top;
+}
+.u-formitem-2 .u-cnt{
+	position: relative;
+}
+.u-ipt-error{
+	position: absolute;
+	right: -172px;
+	border-style: none;
+	line-height: 36px;
+	width: 145px;
+	color: #e83828;
+	opacity: 0;
+}
+.u-ipt-error.show-error{
+	opacity: 1;
+}
+#worksname{
+	padding-left: 12px;
+	height: 38px;
+	width: 294px;
+}
+
+.u-formitem-3{
+	height: 106px;
+}
+#description{
+	padding:5px 12px;
+	width: 405px;
+	height: 106px;
+	line-height: 20px;
+	vertical-align: top;
+}
+label[for="description"]{
+	padding-top: 5px;
+	height: 20px;
+	line-height: 20px;
+}
+#description:focus{
+	outline: none;
+}
+
+.u-formitem-4{
+	height: auto;
+	line-height: 26px;
+	margin-bottom: 8px;
+}
+.u-formitem-4 .u-cnt{
+	vertical-align: top;
+}
+.m-tag{
+	display: flex;
+	flex-wrap: wrap;
+	width: 405px;
+}
+.m-tag .tag{
+	position: relative;
+	width: auto;
+	height: 26px;
+	line-height: 24px;
+	padding: 0 10px;
+	margin: 0 12px 10px 0;
+}
+.m-tag .tag .close{
+	border-style: none;
+	background-color: rgba(0,0,0,0);
+	position: absolute;;
+	right: 1px;
+	top: -3px;
+	font-size: 15px;
+	opacity: 0;
+}
+.m-tag .tag:hover .close{
+	opacity: 0.2;
+}
+.m-tag .tag-add{
+	width: 95px;
+}
+.m-tag .tag-add .u-ipt{
+	display: none;
+}
+.m-tag .tag-add span{
+	display: block;
+}
+.m-tag .tag-add.focused{
+	padding: 0 5px;
+}
+.m-tag .tag-add.focused .u-ipt{
+	border-style: none;
+	width: 100%;
+	height: 24px;
+	line-height: 10px; 
+	display: block;
+}
+.m-tag .tag-add.focused span{
+	display: none;
+}
+
+.u-formitem-5{
+	height: auto;
+	margin-bottom: 45px;
+}
+.u-formitem-5 .u-tt{
+  color: #5ed0ba;
+}
+
+.m-submit, .setting{
+	width: 485px;
+	margin: 0 auto;
+}
+
+.setting{
+	padding: 27px 0 0;
+	overflow: visible;
+}
+
+.m-submit{
+	padding-bottom: 40px;
+}
+.m-submit button[type="submit"]{
+	width: 100px;
+	height: 38px;
+}
+
+.g-aside .wrap{
+	height: auto;
+	background: #f7f8f8;
+	border: 1px solid #e0e1e1;
+	padding-left: 18px;
+	padding-bottom: 42px;
+	font-size: 0;
+}
+.u-formitem-6{
+	margin-left: 0;
+	height: auto;
+}
+.u-formitem-6 .u-tt{
+	height: 66px;
+	line-height: 66px;
+}
+.u-formitem-6 .u-cnt{
+	display: block;
+	font-size: 12px;
+}
+#privilege .u-icon-radio, #privilege .u-icon-radiochecked{
+	margin-right: 8px;
+}
+#privilege .u-cnt label{
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	margin-bottom: 18px;
+	color:#727171;	
+}
+#privilege .u-cnt label:last-child{
+	margin-bottom: 0;
+}
+#privilege .u-cnt input{
+	margin-right: 6px;
+	vertical-align: middle;
+}
+
+#authorization .u-tt{
+	display: block;
+	font-size: 14px;
+	height: 42px;
+	line-height: 42px;
+	margin-top: 31px;
+}
+#authorization .u-cnt{
+	height: 40px;
+	line-height: 40px;
+}
+#authorization .m-select{
+	width: 266px;
+	background-color: #fff;
+	margin-bottom: 42px;
+}
+#authorization .select-val{
+	width: 237px;
+}
+#authorization .select-op{
+	top: 39px;
+}
+#authorization .select-op li{
+	height: 29px;
+	line-height: 29px;
+}
+
+.modalmsg{
+	width: 300px;
+	text-align: center;
+	padding: 0 20px;
+}
+
+.progress-wrap{
+	position: absolute;
+	top: 0;
+	left: 270px;
+	font-size: 12px;
+	line-height: 68px;
+	width: 400px;
+}
+#progress{
+	margin-right: 15px;
+}
+
+.uploadWorklist{
+	box-sizing: border-box;
+	padding-top: 45px;
+	max-height: 455px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.uploadWorklist .m-works{
+	margin-left: 0;
+	margin-right: -30px;
+}
+.uploadWorklist .m-works .item{
+	position: relative;
+	display: inline-block;
+	height: 175px;
+	width: 100px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+}
+.uploadWorklist .m-works img{
+	width: 100%;
+	height: 140px;
+}
+.uploadWorklist-wrap{
+	width: 620px;
+	margin: 0 auto;
+}
+.setcover.u-btn{
+	display: block;
+	height: 22px;
+	line-height: 22px;
+	width: 80px;
+	margin: 5px auto 0 auto;
+	opacity: 0;
+}
+.uploadWorklist .item:hover .setcover{
+	opacity: 1;
+}
+.uploadWorklist .u-icon-delete{
+	position: absolute;
+	top: 5px;
+	right: 3px;
+	opacity: 0;
+}
+.uploadWorklist .item:hover .u-icon-delete{
+	opacity: 1;
+}

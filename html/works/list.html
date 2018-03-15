@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <meta name="description" content="ego"/>
+    <meta name="keywords" content="ego"/>
+    <title>我的作品</title>
+    <link href="../../common/base.css" rel="stylesheet"/>
+    <link href="../../page/works/list.css" rel="stylesheet"/>
+</head>
+<body>
+    <!-- 顶栏 -->
+    <div class="g-header"></div>
+    <!-- banner -->
+    <div class="g-banner"></div>
+    <!-- body -->
+    <div class="g-body">
+        <!-- 用户个人信息 -->
+        <div class="g-profile" id="profile"> </div>
+        <div class="u-line"></div>
+        <div class="g-main">
+            <!-- 侧边栏 -->
+            <div class="m-aside" id="aside"></div>
+            <!-- 作品列表 -->
+            <div class="g-wrap" id="WLContainer"></div>
+            <!-- 分页组件 -->
+            <div id="pagination"></div>
+        </div>
+    </div>
+
+    <!-- 基础配置 -->
+    <script src="../../common/config.js"></script>
+    <!-- 工具函数 -->
+    <script src="../../common/js/util.js"></script>
+    <!-- 事件管理 -->
+    <script src="../../common/js/emitter.js"></script>
+    <!-- 省市区代码 -->
+    <script src="../../lib/address_codes.js"></script>
+    <!-- 模版引擎 -->
+    <script src="../../lib/handlebars-v4.0.11.js"></script>
+    <!-- 引入组件 -->
+    <script src="../../component/base_component.js"></script>
+    <script src="../../component/list_component.js"></script>
+    <!-- 引入页面逻辑 -->
+    <script src="../../page/works/list.js"></script>
+</body>
+</html>

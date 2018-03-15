@@ -1,0 +1,549 @@
+
+.g-banner {
+    height: 356px;
+    position: relative;
+    min-width: 1080px;
+}
+
+.g-body {
+    width: 1080px;
+    margin: 50px auto 0;
+}
+
+.g-main {
+    width: 760px;
+    float: left;
+}
+
+.g-main .m-section {
+    background: #fff;
+}
+
+.g-side {
+    width: 295px;
+    float: right;
+}
+
+.g-footer {
+    box-sizing: border-box;
+    width: 1080px;
+    height: 84px;
+    line-height: 82px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto 96px auto;
+}
+
+.g-footer .m-link {
+    float: left;
+    width: 760px;
+    color: #fff;
+    background-color: #5ed0ba;
+}
+
+.g-footer .m-aboutus {
+    float: right;
+    width: 295px;
+    background: #fff;
+}
+
+/*主栏模块*/
+
+.m-section {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #e2e3e3;
+    margin-bottom: 30px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.m-recommend,
+.g-side .m-mywork {
+    height: 365px;
+}
+
+.m-starlist,
+.m-newwork,
+.m-original,
+.m-fans,
+.g-side .m-hottopic {
+    height: 380px;
+}
+
+.m-original li:first-child a,
+.m-fans li:first-child a,
+.m-copy li:first-child a{
+    height: 260px;
+}
+
+.m-activities {
+    height: 400px;
+}
+
+.m-section .section-head {
+    font-size: 14px;
+    position: relative;
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid #e2e3e3;
+    padding: 0 28px 0 80px;
+}
+
+.m-section .section-more {
+    float: right;
+    padding-top: 21px;
+    line-height: 30px;
+}
+
+.m-section .section-cnt a:hover {
+    text-decoration: underline;
+}
+
+.section-more a {
+    color: #727171;
+}
+
+.m-list {
+    padding: 12px 0 12px 15px;
+    margin-left: -12px;
+    overflow: hidden;
+}
+
+.m-list > li {
+    float: left;
+    overflow: hidden;
+    margin-left: 12px;
+}
+
+.m-list a > img {
+    width: 100%;
+    height: 100%;
+}
+
+.m-list-4 > li > a {
+    display: inline-block;
+}
+
+.m-list-4 > li, .m-list-4 > li > a {
+    width: 173px;
+    height: 268px;
+}
+
+.m-list-1 > li {
+    width: 136px;
+    margin-bottom: 12px;
+}
+
+.m-list-1 > li > a {
+    display: block;
+    width: 100%;
+    height: 113px;
+    overflow: hidden;
+}
+
+
+
+.m-list-1 p {
+    text-align: center;
+    height: 16px;
+    padding-top: 6px;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.m-list-2 {
+    padding: 19px 0 0 22px;
+}
+
+.m-list-2 > li {
+    width: 685px;
+    overflow: visible;
+}
+
+.m-list-2 .act-one,
+.m-list-2 .act-two {
+    position: relative;
+    float: left;
+    width: 567px;
+}
+
+.m-list-2 .act-one {
+    height: 129px;
+    margin-bottom: 15px;
+}
+
+.m-list-2 .act-two {
+    height: 144px;
+}
+
+.m-list-2 a.act-img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.m-list-2 .act-two a.act-img {
+    width: 317px;
+}
+
+.m-list-2 .u-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 17px;
+    color: #fff;
+    line-height: 49px;
+}
+
+.m-list-2 .u-title > a {
+    color: #fff;
+}
+
+.m-list-2 .u-date {
+    position: absolute;
+    right: -25px;
+    top: -17px;
+    line-height: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.u-date p {
+    margin-top: 29px;
+}
+
+.u-date .date {
+    font-style: italic;
+    color: #5ecbb5;
+}
+
+.m-list-2 .act-info {
+    position: absolute;
+    right: 0;
+    top: 0;
+    box-sizing: border-box;
+    width: 250px;
+    height: 146px;
+    border: 1px solid #e5e6e6;
+    border-bottom-style: none;
+}
+
+.m-list-2 .act-info .u-date {
+    top: -8px;
+    right: -20px;
+}
+
+.m-list-2 .act-info .u-title {
+    top: auto;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    box-sizing: border-box;
+    height: 49px;
+    background: #32465b;
+    padding-left: 14px;
+    border: 1px solid #b3bbc3;
+}
+
+.m-list-2 .act-btn {
+    float: right;
+    width: 76px;
+    padding-top: 25px
+}
+
+.m-list-2 .u-btn a {
+    color: #fff;
+}
+
+.m-list-2 .u-btn a:hover {
+    text-decoration: none;
+}
+
+.m-list-2 .act-info .rule {
+    margin: 14px 76px 14px 18px;
+    line-height: 12px;
+    height: 72px;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.section-cnt.m-list-3 {
+    padding-left: 12px;
+}
+
+.m-list-3 > li {
+    width: 359px;
+    height: 69px;
+    padding: 12px 0;
+    line-height: 69px;
+    border: 1px solid #e2e3e3;
+    border-top: 0;
+}
+
+.m-list-3 li:first-child,
+.m-list-3 li:nth-child(2) {
+    border-top: 1px solid #e2e3e3;
+}
+
+.m-card .card-avatar {
+    float: left;
+    width: 69px;
+    height: 69px;
+    border-radius: 50%;
+    margin-left: 22px;
+    vertical-align: middle;
+}
+
+.m-card .card-info {
+    float: left;
+    width: 150px;
+    line-height: 22px;
+    padding-left: 22px;
+    padding-top: 8px;
+    color: #727171;
+    white-space: nowrap;
+}
+
+.card-info .u-name,
+.m-toplist .card-info .work-name {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.u-btn.z-follow:hover:after {
+    content: "取消关注";
+    color: #fff;
+    background: #5ed0ba;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.g-side .m-section .section-head {
+    text-align: center;
+    color: #fff;
+    padding: 0px;
+    background: #5ed0ba;
+}
+
+.g-side .m-mywork .section-head {
+    padding-left: 105px;
+    text-align: left;
+}
+
+.m-mywork .section-more,
+.m-groups .section-more,
+.m-hottopic .section-more {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    float: none;
+    padding-top: 0;
+}
+
+.m-mywork .section-more {
+    float: right;
+    box-sizing: border-box;
+    width: 70px;
+    height: 100%;
+    background: #fff;
+}
+
+.m-mywork .section-more a {
+    margin: 20px 20px;
+}
+
+.g-side .m-list {
+    padding: 0;
+    margin-left: 0;
+    background: #fff;
+}
+
+.m-mywork {
+    overflow: visible;
+}
+
+.m-mywork .m-list {
+    padding-bottom: 12px;
+}
+
+.m-mywork .m-list > li {
+    margin-top: 12px;
+    width: 269px;
+    height: 268px;
+}
+
+.g-side .m-groups {
+    height: 410px;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.g-side .m-groups .section-head {
+    padding: 0;
+    background-color: #fff;
+}
+
+.m-groups .section-head span {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    color: #727171;
+    cursor: pointer;
+}
+
+.toggle input[type='radio']:checked + span {
+    background-color: #5ed0ba;
+    color: #fff;
+}
+
+.m-groups .m-card .card-avatar {
+    width: 87px;
+    height: 87px;
+    border-radius: 0;
+    margin-left: 11px;
+    margin-right: 14px;
+}
+
+.m-groups .m-card .card-info {
+    box-sizing: border-box;
+    width: 164px;
+    height: 100%;
+    padding-left: 34px;
+    padding-top: 21px;
+    line-height: 22px;
+    border-bottom: 1px solid #e5e6e6;
+}
+
+.m-groups li:last-child .card-info {
+    border-bottom: none;
+}
+
+.m-groups .m-list > li {
+    height: 87px;
+    margin-top: 11px;
+    margin-left: 0;
+    width: 100%;
+}
+
+.m-hottopic .m-list > li {
+    box-sizing: border-box;
+    padding: 11px 27px;
+    margin-right: 12px;
+    height: 54px;
+    line-height: 17px;
+}
+
+.m-hottopic .m-list > li p {
+    width: 215px;
+    height: 32px;
+    overflow: hidden;
+}
+
+.m-hottopic .m-list > li + li,
+.m-toplist .m-list > li + li,
+.m-startoplist .m-list > li + li {
+    border-top: 1px solid #e5e6e6;
+}
+
+.g-side .m-toplist {
+    box-sizing: border-box;
+    height: 810px;
+    overflow: visible;
+}
+
+.g-side .m-toplist .section-head {
+    height: 65px;
+    background: #fff;
+    border-bottom: none;
+    margin-bottom: 6px;
+}
+
+.m-toplist .section-head .title {
+    float: left;
+    width: 100px;
+    height: 100%;
+    line-height: 65px;
+    margin-right: 10px;
+    background: #5ed0ba;
+}
+
+.m-toplist #sidetabs {
+    box-sizing: border-box;
+    height: 59px;
+    background: #fff;
+    margin-top: 0px;
+}
+
+.m-toplist #sidetabs a {
+    height: 65px;
+    line-height: 65px;
+    padding: 0 13px;
+}
+
+.m-toplist #sidetabs a:hover {
+    text-decoration: none;
+}
+
+.m-toplist .m-card {
+    margin: 0 12px;
+    padding: 16px 0;
+}
+
+.m-toplist .m-card .card-avatar {
+    border-radius: 0;
+    width: 136px;
+    height: 113px;
+    margin-left: 5px;
+}
+
+.m-toplist .m-card .card-info {
+    width: 114px;
+    padding-left: 12px;
+    padding-top: 14px;
+}
+
+.m-toplist .card-info .u-name {
+    font-size: 12px;
+    color: #727171;
+    font-weight: normal;
+    margin-bottom: 17px;
+}
+
+.m-toplist .section-more,
+.m-startoplist .section-more {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    margin-left: -15px;
+    padding-top: 0;
+}
+
+.m-mywork .section-more a,
+.m-toplist .section-more a,
+.m-startoplist .section-more a {
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.m-startoplist {
+    height: 739px;
+    overflow: visible;
+}
+
+.m-startoplist .section-head {
+    height: 65px;
+    line-height: 65px;
+}
+
+.m-startoplist .m-card {
+    padding: 29px 0;
+    margin: 0 12px;
+}

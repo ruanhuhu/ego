@@ -1,0 +1,249 @@
+
+.g-banner {
+    height: 250px;
+    min-width: 1080px;
+    background: url(../../res/images/mywork_banner.jpg) 50%/100% 100% no-repeat;
+}
+
+.g-body{
+	width: 750px;
+	margin: 0 auto;
+	margin-bottom: 48px;
+	background: #fff;
+    -webkit-box-shadow: 3px 3px 7px rgb(185, 185, 185);
+    box-shadow: 3px 3px 7px rgb(185, 185, 185);
+}
+
+.g-profile{
+	position: relative;
+	height: 216px;
+	margin-top: -95px;
+	padding-top: 27px;
+}
+
+.m-aside{
+    width: 100px;
+    height: 288px;
+    position: absolute;
+    left: -100px;
+    background: rgba(255,255,255,0.8);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.m-aside li:first-child{
+    border-top-left-radius: 3px;
+}
+
+.m-aside li:last-child{
+    border-bottom-left-radius: 3px;
+}
+.m-aside li{
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    cursor: pointer;
+}
+.m-aside a{
+    color: #5ed0ba;
+}
+.m-aside li:hover a, .m-aside .z-select a{
+    color: #fff;
+}
+.m-aside li:hover, .m-aside .z-select{
+    background-color: #5ed0ba;
+}
+
+.m-aside .dot{
+    position: relative;
+}
+
+.m-aside .dot:after {
+    position: absolute;
+    content: ' ';
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    top: 5px;
+    right: 8px;
+    background-color: #e55f48;
+}
+
+.g-main{
+	height: 726px;
+	position: relative;
+}
+
+.g-profile .u-avatar{
+    height: 114px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.g-profile .u-info{
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+.g-profile .u-name{
+	max-width: 125px;
+    font-size: 20px;
+    display: inline-block;
+    font-weight: bolder;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/*作品列表*/
+.g-wrap{
+	position: relative;
+	width: 636px;
+	margin: 0 auto;
+}
+
+.g-wrap .title{
+	margin-top: 18px;
+	margin-bottom: 28px;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	height: 36px;
+	line-height: 36px;
+	color: #231815;
+	white-space: pre;
+}
+
+#upload{
+	position: absolute;
+	right: -9px;
+	top: 18px;	
+}
+.item-name-ipt{
+	width: 230px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.item-name-error{
+	display: block;
+	width: 230px;
+	margin: 8px auto 0 auto;
+	font-size: 12px;
+	text-align: left;
+	color: #e83828;
+}
+
+/*分页组件*/
+#pagination{
+	width: 100%;
+	position: absolute;
+	bottom: 25px;
+	height: 33px;
+	text-align: center;
+}
+
+.m-pagination{
+	display: inline-block;
+}
+
+.m-pagination li{
+	float: left;
+	padding: 0 14px;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	cursor: pointer;
+	color: #5eccb6;
+}
+
+.m-pagination .disabled{
+	/*cursor: not-allowed;*/
+	cursor: default;
+	color: #ccc;
+}
+
+.m-pagination .active{
+	background: url(../../res/images/pagination_active.png) no-repeat 50% 50%;
+	color: #fff;
+}
+
+#loading{
+    position: relative;
+}
+.m-works{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -32px;
+    margin-left: 3px;
+    
+}
+.m-works.addloading{
+    background: url(../../res/images/loading.gif) no-repeat;
+    min-height: 32px;
+}
+.m-works .item{
+    position: relative;
+    width: 104px;
+    height: 160px;
+    box-sizing: border-box;
+    border: 1px solid #d4d4d4;
+    background-color: #fff;
+    margin-right: 29px;
+    margin-bottom: 23px;
+}
+
+.m-works .item a{
+    display: block;
+    width: 104px;
+    height: 160px;
+}
+
+.m-works .item a:before{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: -4px;
+    left: -4px;
+    border: 1px solid #d7d7d7;
+    background-color: #c5c6c6;
+    content: "";
+}
+
+.m-works .item h3{
+    position: absolute;
+    right: 5px;
+    left: -6px;
+    bottom: -6px;
+    height: 31px;
+    line-height: 31px;
+    background-color: rgba(255,255,255,.8);
+    text-align: center;
+    color: #727171;
+    z-index: 1;
+}
+
+.m-works .item img{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: -7px;
+    left: -7px;
+    width: 104px;
+    height: 160px;
+    box-sizing: border-box;
+    border: 1px solid #d7d7d7;
+    border-top: none;
+    border-right: none;
+}
+
+.m-works .item .icons{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding-right: 3px;
+    padding-top: 3px;
+}
+
+.m-works .item:hover .icons{
+    display: block;
+}
