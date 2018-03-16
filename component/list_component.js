@@ -523,7 +523,8 @@ if (!window.App || typeof window.App !== 'object') {
         // 默认选中弹窗中输入框内的字符串
         nInput = modal.nBody.querySelector('input');
         nInput.focus();
-        nInput.setSelectionRange(0,-1);
+        // nInput.setSelectionRange(0,-1);  //safari 不兼容第二个参数为负值
+        nInput.setSelectionRange(0, nInput.value.length+1);
     };
 
     WorksList.prototype.initPagination = function(worksTotal){
