@@ -131,7 +131,10 @@ if (!window.App || typeof window.App !== 'object') {
         BASE_URL + '/res/images/work4.jpg'
     ];
 
-    var preloadImgs = [].concat(SPRITES, INDEX_BANNER_IMGS, INDEX_RECOMMEND_LIST_IMGS);
+    // 注册弹窗logo图
+    var REGISTER_MODAL_IMG = BASE_URL + '/res/images/logo.png';
+
+    var preloadImgs = [].concat(SPRITES, INDEX_BANNER_IMGS, INDEX_RECOMMEND_LIST_IMGS,REGISTER_MODAL_IMG);
 
     new App.PreLoad(preloadImgs);
 
