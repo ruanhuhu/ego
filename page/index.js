@@ -6,6 +6,8 @@
             this.compileTemplateMain();
             // 编译模板（侧边栏）
             this.compileTemplateAside();
+            // 添加底栏
+            this.initFooter();
 
             // 导航
             this.initNav();
@@ -297,6 +299,12 @@
             _.$('.g-side').innerHTML = html;
         },
 
+        // 初始化底栏
+        initFooter: function () {
+            var html = '<div class="m-link">/ 友 情 链 接 /</div><div class="m-aboutus"> / 关 于 我 们 /</div>';
+
+            _.$('.g-footer').innerHTML = html;
+        },
 
 
         // 初始化 顶栏
@@ -315,7 +323,7 @@
             // Nav 状态初始化获取登录用户信息失败后触发notLoggedin，初始化未登录明日之星内容
             // 或 Nav->User 点击"退出"，触发notLoggedin，则刷新主页明日之星栏目的内容
             this.nav.on('notLoggedin', function () {
-                if(this.starList){
+                if (this.starList) {
                     this.starList.getStarlist();
                 } else {
                     this.initStarList();

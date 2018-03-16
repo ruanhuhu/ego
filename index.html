@@ -9,11 +9,6 @@
     <title>Ego首页</title>
     <link href="./common/base.css" rel="stylesheet"/>
     <link href="./page/index.css" rel="stylesheet"/>
-    <link rel="preload" href="./res/images/banner0.jpg" as="image">
-    <link rel="preload" href="./res/images/banner1.jpg" as="image">
-    <link rel="preload" href="./res/images/banner2.jpg" as="image">
-    <link rel="preload" href="./res/images/banner3.jpg" as="image">
-    <link rel="preload" href="./res/images/logo.png" as="image">
 </head>
 
 <body>
@@ -43,10 +38,7 @@
         </div>
     </div>
     <!-- 底栏 -->
-    <div class="g-footer f-cb">
-        <div class="m-link">/ 友 情 链 接 /</div>
-        <div class="m-aboutus"> / 关 于 我 们 /</div>
-    </div>
+    <div class="g-footer f-cb"></div>
 
     <!-- 基础配置 -->
     <script src="./common/config.js"></script>
@@ -54,12 +46,8 @@
     <script src="./common/js/util.js"></script>
     <!-- 事件管理 -->
     <script src="./common/js/emitter.js"></script>
-    <!-- 数据验证 -->
-    <script src="./common/js/validator.js"></script>
-    <!-- md5加密 -->
-    <script src="./lib/md5.js"></script>
-    <!-- 省市区代码 -->
-    <script src="./lib/address_codes.js"></script>
+    <!--图片预加载 -->
+    <script src="./common/js/preloadimg.js"></script>
     <!-- 模版引擎 -->
     <script src="./lib/handlebars-v4.0.11.js"></script>
     <!-- 模板模块 -->
@@ -69,5 +57,12 @@
     <script src="./component/index_component.js"></script>
     <!-- 引入页面逻辑 -->
     <script src="./page/index.js"></script>
+
+    <!-- 数据验证 -->
+    <script src="./common/js/validator.js"></script>
+    <!-- md5加密 -->
+    <script src="./lib/md5.js"></script>
+    <!-- 省市区代码 -->
+    <script src="./lib/address_codes.js"></script>
 </body>
 </html>

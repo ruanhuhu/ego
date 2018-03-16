@@ -554,7 +554,7 @@ if (!window.App || typeof window.App !== 'object') {
             container: this.layout,
             index: this.getTabIndex(),
             nTabData: [
-                {name: '首页', url: BASE_URL},
+                {name: '首页', url: BASE_URL + '/index.html'},
                 {name: '作品', url: BASE_URL + '/html/works/list.html'},
                 {name: '圈子', url: 'javascript:void(0);'},
                 {name: '奇思妙想', url: 'javascript:void(0);'}

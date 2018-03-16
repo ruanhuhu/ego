@@ -755,8 +755,8 @@ body {
 }
 
 .m-slider .slider_img img {
-    width: 100vw;
-    height: calc(100vw / 2267 * 1535);
+    /*width: 100vw;*/
+    /*height: calc(100vw / 2267 * 1535);*/
 }
 
 .m-cursor {
