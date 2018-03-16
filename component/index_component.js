@@ -149,7 +149,6 @@ if(!window.App || typeof window.App !== 'object'){
  * emit：toRegister、loggedin (closeModal 继承自通用 Modal)
  */
 (function (App) {
-    var validator = App.validator;
     var html = `<div>
         <div class="modal-tt">
             <strong class="wlcm">欢迎回来</strong>
@@ -233,6 +232,7 @@ if(!window.App || typeof window.App !== 'object'){
         },
 
         check: function () {
+            var validator = App.validator;
             var isValid = true,
                 flag = true;
 
