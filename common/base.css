@@ -172,7 +172,9 @@ body {
     word-break: break-word;
     background: #efefef;
 }
-
+input{
+    line-height: 1.2em;
+}
 .f-cb:after {
     clear: both;
     content: '.';
@@ -952,7 +954,6 @@ body {
 .m-form .formitem-tt {
     font-size: 12px;
     height: 40px;
-    line-height: 40px;
     display: inline-block;
     width: 61px;
     padding-left: 17px;
@@ -976,7 +977,6 @@ body {
 
 .m-form-2 .formitem-ct {
     font-size: 12px;
-    line-height: 40px;
     height: 40px;
     box-sizing: border-box;
     display: inline-block;
@@ -1160,3 +1160,4 @@ body {
 .del-item-name {
     color: #5ed0ba;
 }
+

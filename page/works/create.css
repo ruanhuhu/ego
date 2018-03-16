@@ -124,7 +124,7 @@
 	padding:5px 12px;
 	width: 405px;
 	height: 106px;
-	line-height: 20px;
+	line-height: 1.5em;
 	vertical-align: top;
 }
 label[for="description"]{
