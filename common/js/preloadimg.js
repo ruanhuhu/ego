@@ -117,10 +117,10 @@ if (!window.App || typeof window.App !== 'object') {
 
     // 主页 轮播图
     var INDEX_BANNER_IMGS = [
-        BASE_URL + '/res/images/bannerHQ/banner0.jpg',
-        BASE_URL + '/res/images/bannerHQ/banner1.jpg',
-        BASE_URL + '/res/images/bannerHQ/banner2.jpg',
-        BASE_URL + '/res/images/bannerHQ/banner3.jpg'
+        BASE_URL + '/res/images/bannerLQ/banner0.jpg',
+        BASE_URL + '/res/images/bannerLQ/banner1.jpg',
+        BASE_URL + '/res/images/bannerLQ/banner2.jpg',
+        BASE_URL + '/res/images/bannerLQ/banner3.jpg'
     ];
 
     // 主页 精选推荐
