@@ -60,7 +60,10 @@ if(!window.App || typeof window.App !== 'object'){
             slides.innerHTML = html;
             this.slider.appendChild(slides);
 
-            return slides.children;
+            // return slides.children;
+            // 兼容IE EDGE, 将slides.children转换成数组类型, ES6实现：Array.from(array-like)
+            return Array.prototype.slice.call(slides.children, 0);
+
         },
 
         // 构造指示器节点
@@ -79,11 +82,13 @@ if(!window.App || typeof window.App !== 'object'){
 
             cursor.addEventListener('click', function(event) {
                 index = event.target.dataset.index;
-                if (index !== undefined) {
-                    this.nav(index);
+                if (typeof index !== 'undefined') {
+                    this.nav(parseInt(index));
                 }
             }.bind(this));
-            return cursor.children;
+            // return cursor.children;
+            // 兼容IE EDGE, 将cursor.children转换成数组类型, ES6实现：Array.from(array-like)
+            return Array.prototype.slice.call(cursor.children, 0);
         },
 
         // 自动播放
@@ -361,7 +366,7 @@ if(!window.App || typeof window.App !== 'object'){
         clickHandler: function (event) {
             var target = event.target;
             if (target.parentNode == this.nOption) {
-                this.setSelect(target.dataset.index);
+                this.setSelect(parseInt(target.dataset.index));
             } else if (target.parentNode == this.nHead || target == this.nHead) {
                 this.toggle();
             } else {
@@ -381,7 +386,7 @@ if(!window.App || typeof window.App !== 'object'){
             _.addClass(this.nOption, 'f-dn');
         },
 
-        toggle: function (event) {
+        toggle: function () {
             _.hasClass(this.nOption, 'f-dn') ? this.open() : this.close();
         },
 
@@ -954,13 +959,13 @@ if(!window.App || typeof window.App !== 'object'){
                     return;
                 }
                 //已经登录的情况
-                var userId = target.dataset.userid,
+                var userId = parseInt(target.dataset.userid),
                     dataArr = this.starsInfo,
                     data;
 
                 // data = 点击的用户信息
                 for(var i=0; i<dataArr.length; i++){
-                    if(dataArr[i].id == userId){
+                    if(dataArr[i].id === userId){
                         data = dataArr[i];
                         break;
                     }
