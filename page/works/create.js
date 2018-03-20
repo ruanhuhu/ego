@@ -124,13 +124,13 @@
             this.tagsStr = this.tags.getValue().join();
 
             // 分类
-            this.category = this.form.querySelector('input[name="category"]:checked').value;
+            this.category = parseInt(this.form.querySelector('input[name="category"]:checked').value);
 
             // 描述
             this.description = _.$('#description').value;
 
             // 权限设置
-            this.privilege = this.form.querySelector('input[name="privilege"]:checked').value;
+            this.privilege = parseInt(this.form.querySelector('input[name="privilege"]:checked').value);
 
             // 授权设置
             this.authorization = this.authorSlct.getValue();
