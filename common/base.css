@@ -4,85 +4,31 @@ h1,
 h2,
 h3,
 h4,
-h5,
 h6,
 div,
-dl,
-dt,
-dd,
 ul,
-ol,
 li,
 p,
-blockquote,
-pre,
-hr,
-figure,
-table,
-caption,
-th,
-td,
 form,
 fieldset,
-legend,
 input,
 button,
-textarea,
-menu {
+textarea {
     margin: 0;
     padding: 0;
 }
 
-header,
-footer,
-section,
-article,
-aside,
-nav,
-hgroup,
-address,
-figure,
-figcaption,
-menu,
-details {
-    display: block;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-caption,
-th {
-    text-align: left;
-    font-weight: normal;
+a:focus,
+button:focus,
+input:focus {
+    outline: 0;
 }
 
 html,
 body,
 fieldset,
-img,
-iframe,
-abbr {
+img {
     border: 0;
-}
-
-i,
-cite,
-em,
-var,
-address,
-dfn {
-    font-style: normal;
-}
-
-a:focus,
-button:focus,
-input:focus,
-[hidefocus],
-summary {
-    outline: 0;
 }
 
 li {
@@ -93,27 +39,9 @@ h1,
 h2,
 h3,
 h4,
-h5,
-h6,
-small {
+h6 {
     font-size: 100%;
-}
-
-sup,
-sub {
-    font-size: 83%;
-}
-
-pre,
-code,
-kbd,
-samp {
-    font-family: inherit;
-}
-
-q:before,
-q:after {
-    content: none;
+    font-weight: normal;
 }
 
 textarea {
@@ -121,8 +49,7 @@ textarea {
     resize: none;
 }
 
-label,
-summary {
+label {
     cursor: default;
 }
 
@@ -131,22 +58,6 @@ button {
     cursor: pointer;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-em,
-strong,
-b {
-    font-weight: normal;
-}
-
-del,
-ins,
-u,
-s,
 a,
 a:hover {
     text-decoration: none;
@@ -155,7 +66,6 @@ a:hover {
 
 body,
 textarea,
-select,
 input,
 button {
     font-size: 12px;
@@ -167,14 +77,15 @@ html,
 body {
     width: 100%;
     height: 100%;
-    border: 0;
     word-wrap: break-word;
-    word-break: break-word;
+    word-break: break-all;
     background: #efefef;
 }
-input{
+
+input {
     line-height: 1.2em;
 }
+
 .f-cb:after {
     clear: both;
     content: '.';
@@ -1067,7 +978,6 @@ input{
 #registerform .u-formitem-2 {
     margin-top: 20px;
     font-size: 12px;
-
 }
 
 .u-formitem-2 label[for="agreement"] span {
