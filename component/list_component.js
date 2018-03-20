@@ -429,7 +429,7 @@ if (!window.App || typeof window.App !== 'object') {
                 var nName = nWork.querySelector('h3');
                 var options = {
                     name: nName.innerHTML,
-                    id: nWork.dataset.id
+                    id: parseInt(nWork.dataset.id)
                 };
                 if(_.hasClass(target, 'u-icon-delete')){
                     self.deleteWorks(options);
