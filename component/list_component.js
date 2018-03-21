@@ -45,7 +45,7 @@ if (!window.App || typeof window.App !== 'object') {
                 sex: iconConfig[user.sex],
                 age: this.getAge(user.birthday),
                 constellation: this.getConstellation(user.birthday),
-                address: this.getAddress(user) || '未知',
+                address: this.getAddress(user) || '未知'
             };
             // 通过数据 生成模板
             this.container.innerHTML = template(user_info);
@@ -102,7 +102,7 @@ if (!window.App || typeof window.App !== 'object') {
                 }
             }
         }
-    })
+    });
 
     App.Profile = Profile;
 
@@ -127,7 +127,7 @@ if (!window.App || typeof window.App !== 'object') {
      **/
     var Aside = {
         // 初始化
-        init: function(options){
+        init: function (options) {
             // 继承配置
             _.extend(this, options);
             // 缓存节点
@@ -324,7 +324,7 @@ if (!window.App || typeof window.App !== 'object') {
 
     _.extend(WorksList.prototype, App.localEmitter);
 
-    WorksList.prototype.init = function(){
+    WorksList.prototype.init = function () {
         // 渲染列表头
         this._layout = _.html2node(template);
         this.container.appendChild(this._layout);
@@ -338,8 +338,8 @@ if (!window.App || typeof window.App !== 'object') {
         // 加载作品列表信息
         this.loadList({
             query: this.query,
-            callback: function(data){
-                if(!data.result.data.length){
+            callback: function (data) {
+                if (!data.result.data.length) {
                     this.worksContainer.innerHTML = "你还没有创建过作品～";
                     return;
                 }
@@ -364,15 +364,15 @@ if (!window.App || typeof window.App !== 'object') {
      *    callback: function 获取到作品列表信息后的回调函数
      * }
      **/
-    WorksList.prototype.loadList = function(options){
+    WorksList.prototype.loadList = function (options) {
         var LOADING = true;
 
         // 隐藏已有数据列表
         this.worksContainer.innerHTML = '';
         // 超时500ms 添加loading图标
         setTimeout(function () {
-            if(LOADING === true)
-            _.addClass(this.worksContainer, 'addloading');
+            if (LOADING === true)
+                _.addClass(this.worksContainer, 'addloading');
         }.bind(this), 500);
 
         _.ajax({
@@ -382,7 +382,7 @@ if (!window.App || typeof window.App !== 'object') {
                 offset: options.query.offset,
                 limit: options.query.limit
             },
-            success: function(data){
+            success: function (data) {
                 LOADING = false;
                 // 取消loading图标
                 _.delClass(this.worksContainer, 'addloading');
@@ -419,48 +419,48 @@ if (!window.App || typeof window.App !== 'object') {
         this.worksContainer.innerHTML = html;
     };
 
-    WorksList.prototype.addEvent = function(){
+    WorksList.prototype.addEvent = function () {
         //给编辑和删除图标添加点击事件
         var self = this;
-        this.worksContainer.addEventListener('click', function(e){
+        this.worksContainer.addEventListener('click', function (e) {
             var target = e.target;
-            if(_.hasClass(target,'u-icon')){
+            if (_.hasClass(target, 'u-icon')) {
                 var nWork = target.parentNode.parentNode;
                 var nName = nWork.querySelector('h3');
                 var options = {
                     name: nName.innerHTML,
                     id: parseInt(nWork.dataset.id)
                 };
-                if(_.hasClass(target, 'u-icon-delete')){
+                if (_.hasClass(target, 'u-icon-delete')) {
                     self.deleteWorks(options);
-                }else if(_.hasClass(target, 'u-icon-edit')){
-                    self.editWorks(options,nWork);
+                } else if (_.hasClass(target, 'u-icon-edit')) {
+                    self.editWorks(options, nWork);
                 }
             }
         });
     };
 
-    WorksList.prototype.deleteWorks = function(options){
+    WorksList.prototype.deleteWorks = function (options) {
         var self = this;
         var modal = new App.Modal({
             HEAD: true,
-            content: `确定要删除作品 <em class="del-item-name">"${options.name}"</em> 吗？`,
+            content: '确定要删除作品 <em class="del-item-name">"' + options.name + '"</em> 吗？',
             FOOT: true
         });
         //需要自己注册confirm监听事件
-        modal.on('confirmModal', function(){
+        modal.on('confirmModal', function () {
             this.hide();
             _.ajax({
                 // url: _.getApiUrl('/api/works/'+options.id,'DELETE'),
-                url: _.getApiUrl('/api/works?id','DELETE'),
+                url: _.getApiUrl('/api/works?id', 'DELETE'),
                 method: _.fixMethod('DELETE'),
                 data: {id: options.id},
-                success: function(data){
-                    if(data.code === 200){
+                success: function (data) {
+                    if (data.code === 200) {
                         // 重新渲染分页 跳转至删除操作时所在页 或 上一页
                         self.pagination.render(self.pagination.current, self.worksSum);
                         // 重新渲染作品列表
-                        self.pagination.emit('pageChange',self.pagination.current);
+                        self.pagination.emit('pageChange', self.pagination.current);
                     }
                 }
             });
@@ -492,14 +492,14 @@ if (!window.App || typeof window.App !== 'object') {
             // 新名称有效， 则关闭编辑名称弹窗
             this.hide();
 
-            if(newName !== options.name){
+            if (newName !== options.name) {
                 _.ajax({
                     // url: _.getApiUrl('/api/works/'+options.id,'PATCH'),
-                    url: _.getApiUrl('/api/works?id','PATCH'),
+                    url: _.getApiUrl('/api/works?id', 'PATCH'),
                     method: _.fixMethod('PATCH'),
                     data: {name: newName},
-                    success: function(data){
-                        if(data.code === 200){
+                    success: function (data) {
+                        if (data.code === 200) {
                             // 如果新名称修改正常，修改新名称
                             // nWork.querySelector('h3').innerText = data.result.name;
                             nWork.querySelector('h3').innerText = newName;
@@ -510,7 +510,7 @@ if (!window.App || typeof window.App !== 'object') {
                                 CANCEL: false
                             });
                             tipModal.show();
-                            tipModal.on('confirmModal', function() {
+                            tipModal.on('confirmModal', function () {
                                 this.hide();
                             }.bind(this));
                         }
@@ -524,10 +524,10 @@ if (!window.App || typeof window.App !== 'object') {
         nInput = modal.nBody.querySelector('input');
         nInput.focus();
         // nInput.setSelectionRange(0,-1);  //safari 不兼容第二个参数为负值
-        nInput.setSelectionRange(0, nInput.value.length+1);
+        nInput.setSelectionRange(0, nInput.value.length + 1);
     };
 
-    WorksList.prototype.initPagination = function(worksTotal){
+    WorksList.prototype.initPagination = function (worksTotal) {
 
         this.pagination = new App.Pagination({
             parent: _.$('#pagination'),
@@ -537,14 +537,14 @@ if (!window.App || typeof window.App !== 'object') {
             itemsLimit: 15
         });
 
-        this.pagination.on('pageChange', function(currentPage){
+        this.pagination.on('pageChange', function (currentPage) {
             this.loadList({
                 query: {
                     total: 0,
                     offset: (currentPage - 1) * 15,
                     limit: 15
                 },
-                callback: function(data){
+                callback: function (data) {
                     this.renderList(data.result.data);
                 }.bind(this)
             });

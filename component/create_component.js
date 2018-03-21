@@ -8,8 +8,7 @@ if (!window.App || typeof window.App !== 'object') {
  * emit: selectClick、selected
  */
 (function (App) {
-    var template =
-        '<div class="m-select">\
+    var template = '<div class="m-select">\
             <div class="select-hd">\
                 <span class="select-val"></span>\
                 <span class="u-icon u-icon-dropdown"></span>\

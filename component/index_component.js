@@ -1,16 +1,17 @@
 // 防止window.App 不存在
-if(!window.App || typeof window.App !== 'object'){
+if (!window.App || typeof window.App !== 'object') {
     window.App = {};
 }
 
 
 /* 轮播 */
-(function(App) {
+(function (App) {
     // var template ='<div class="m-slider">\
     //     <a><div class="slides"></div></a>\
     // </div>';
 
     var template = '<div class="m-slider"></div>';
+
     /**
      * options 参数说明
      * {
@@ -27,17 +28,18 @@ if(!window.App || typeof window.App !== 'object'){
         this.imgLength = this.imgList.length;
         this.interval = this.interval || 5000;
 
-        //组件节点
+        // 初始化组件
         this.slider = this._layout.cloneNode(true);
         this.slides = this.buildSlides();
         this.cursors = this.buildCursor();
 
-        //初始化组件
+        // 注册事件
         this.slider.addEventListener('mouseenter', this.stop.bind(this));
         this.slider.addEventListener('mouseleave', this.autoPlay.bind(this));
 
-        //初始化动作
+        // 挂载组件
         this.container.appendChild(this.slider);
+
         this.nav(this.initIndex || 0);
         this.autoPlay();
     }
@@ -47,7 +49,7 @@ if(!window.App || typeof window.App !== 'object'){
         _layout: _.html2node(template),
 
         // 构建轮播图节点
-        buildSlides: function() {
+        buildSlides: function () {
             var slides = document.createElement('ul');
             var html = '';
             for (var i = 0; i < this.imgLength; i++) {
@@ -61,13 +63,14 @@ if(!window.App || typeof window.App !== 'object'){
             this.slider.appendChild(slides);
 
             // return slides.children;
-            // 兼容IE EDGE, 将slides.children转换成数组类型, ES6实现：Array.from(array-like)
+            // 兼容IE EDGE, live HTMLCollection在后续append操作后会改变， 导致无法访问
+            // 将slides.children转换成数组类型, ES6实现：Array.from(array-like)
             return Array.prototype.slice.call(slides.children, 0);
 
         },
 
         // 构造指示器节点
-        buildCursor: function() {
+        buildCursor: function () {
             var cursor = document.createElement('ul'),
                 html = '';
 
@@ -80,37 +83,39 @@ if(!window.App || typeof window.App !== 'object'){
             cursor.innerHTML = html;
             this.slider.appendChild(cursor);
 
-            cursor.addEventListener('click', function(event) {
+            cursor.addEventListener('click', function (event) {
                 index = event.target.dataset.index;
                 if (typeof index !== 'undefined') {
                     this.nav(parseInt(index));
                 }
             }.bind(this));
+
             // return cursor.children;
-            // 兼容IE EDGE, 将cursor.children转换成数组类型, ES6实现：Array.from(array-like)
+            // 兼容IE EDGE, live HTMLCollection在后续append操作后会改变， 导致无法访问
+            // 将cursor.children转换成数组类型, ES6实现：Array.from(array-like)
             return Array.prototype.slice.call(cursor.children, 0);
         },
 
         // 自动播放
-        autoPlay: function() {
-            this.timer = setInterval(function() {
+        autoPlay: function () {
+            this.timer = setInterval(function () {
                 this.next();
             }.bind(this), this.interval);
         },
 
         // 停止播放
-        stop: function() {
+        stop: function () {
             clearInterval(this.timer);
         },
 
         // 下一页
-        next: function() {
+        next: function () {
             var index = (this.index + 1) % this.imgLength; //+1，index下一张
             this.nav(index);
         },
 
         // 跳到指定页
-        nav: function(index) { //给每个指示器li注册click nav事件
+        nav: function (index) { //给每个指示器li注册click nav事件
             // 若未改变index, 则不做任何操作
             if (this.index === index) return;
             // 保存上一页
@@ -122,9 +127,9 @@ if(!window.App || typeof window.App !== 'object'){
         },
 
         // 设置当前选中状态
-        setCurrent: function() {
+        setCurrent: function () {
             // 若存在上一页
-            if(typeof this.last !== 'undefined'){
+            if (typeof this.last !== 'undefined') {
                 // 除去上一节点的选中状态
                 _.delClass(this.slides[this.last], 'z-active');
                 _.delClass(this.cursors[this.last], 'z-active');
@@ -135,9 +140,9 @@ if(!window.App || typeof window.App !== 'object'){
         },
 
         // 切换效果
-        fade: function() {
+        fade: function () {
             // 若存在上一页
-            if(typeof this.last !== 'undefined'){
+            if (typeof this.last !== 'undefined') {
                 // 上一页隐藏
                 this.slides[this.last].style.opacity = 0;
             }
@@ -365,9 +370,9 @@ if(!window.App || typeof window.App !== 'object'){
 
         clickHandler: function (event) {
             var target = event.target;
-            if (target.parentNode == this.nOption) {
+            if (target.parentNode === this.nOption) {
                 this.setSelect(parseInt(target.dataset.index));
-            } else if (target.parentNode == this.nHead || target == this.nHead) {
+            } else if (target.parentNode === this.nHead || target === this.nHead) {
                 this.toggle();
             } else {
                 if (!_.hasClass(this.nOption, 'f-dn')) {
@@ -873,7 +878,7 @@ if(!window.App || typeof window.App !== 'object'){
  * 状态
  * emit: toLogin
  */
-(function(App) {
+(function (App) {
     var followConfig = [{
         class: "z-unfollow",
         icon: "u-icon-follow",
@@ -964,8 +969,8 @@ if(!window.App || typeof window.App !== 'object'){
                     data;
 
                 // data = 点击的用户信息
-                for(var i=0; i<dataArr.length; i++){
-                    if(dataArr[i].id === userId){
+                for (var i = 0; i < dataArr.length; i++) {
+                    if (dataArr[i].id === userId) {
                         data = dataArr[i];
                         break;
                     }
@@ -978,12 +983,12 @@ if(!window.App || typeof window.App !== 'object'){
                 }
             }
         },
-        follow: function(followInfo, replaceNode) {
+        follow: function (followInfo, replaceNode) {
             _.ajax({
                 url: _.getApiUrl('/api/users?follow', 'POST'),
                 method: _.fixMethod('POST'),
-                data: { id: followInfo.id },
-                success: function(data) {
+                data: {id: followInfo.id},
+                success: function (data) {
                     if (data.code == 200) {
                         followInfo.isFollow = true;
                         followInfo.followCount++;
@@ -991,15 +996,16 @@ if(!window.App || typeof window.App !== 'object'){
                         replaceNode.parentNode.replaceChild(newNode, replaceNode);
                     }
                 }.bind(this),
-                fail: function() {}
+                fail: function () {
+                }
             });
         },
-        unfollow: function(followInfo, replaceNode) {
+        unfollow: function (followInfo, replaceNode) {
             _.ajax({
-                url: _.getApiUrl('/api/users?unfollow','POST'),
+                url: _.getApiUrl('/api/users?unfollow', 'POST'),
                 method: _.fixMethod('POST'),
-                data: { id: followInfo.id },
-                success: function(data) {
+                data: {id: followInfo.id},
+                success: function (data) {
                     if (data.code == 200) {
                         followInfo.isFollow = false;
                         followInfo.followCount--;
@@ -1007,7 +1013,8 @@ if(!window.App || typeof window.App !== 'object'){
                         replaceNode.parentNode.replaceChild(newNode, replaceNode);
                     }
                 }.bind(this),
-                fail: function() {}
+                fail: function () {
+                }
             });
         }
     });

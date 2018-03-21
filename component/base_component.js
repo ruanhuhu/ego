@@ -309,7 +309,7 @@ if (!window.App || typeof window.App !== 'object') {
             data: {},
             success: function (data) {
                 if (data.code === 200) {
-                    if (window.location.pathname === (BASE_URL + '/index.html') || window.location.pathname === BASE_URL+'/') {
+                    if (window.location.pathname === (BASE_URL + '/index.html') || window.location.pathname === BASE_URL + '/') {
                         // 用于 StarList 中，点击关注时判断登录状态
                         window.App.user = {};
                         this.hide();
@@ -573,7 +573,7 @@ if (!window.App || typeof window.App !== 'object') {
             container: this.layout
         });
         // 传递guest发射的事件（给注册/登录弹窗组件）
-        this.guest.on('toLogin', function(){
+        this.guest.on('toLogin', function () {
             this.emit('toLogin');
         }.bind(this));
         this.guest.on('toRegister', function () {
@@ -602,7 +602,7 @@ if (!window.App || typeof window.App !== 'object') {
     //  获取tab的选中项的序号
     Nav.prototype.getTabIndex = function () {
         // 根据url 的path，决定 tab的index
-        if(location.pathname.indexOf('/works') !== -1){
+        if (location.pathname.indexOf('/works') !== -1) {
             // 作品页
             return 1;
         } else {
