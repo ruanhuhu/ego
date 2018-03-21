@@ -53,7 +53,7 @@ if (!window.App || typeof window.App !== 'object') {
         render: function (data, defaultIndex) {
             var optionsHTML = '';
             for (var i = 0; i < data.length; i++) {
-                optionsHTML += `<li data-index=${i}>${data[i].name}</li>`;
+                optionsHTML += '<li data-index="' + i + '">' + data[i].name + '</li>';
             }
             this.nOption.innerHTML = optionsHTML;
             this.nOptions = this.nOption.children;
@@ -125,23 +125,23 @@ if (!window.App || typeof window.App !== 'object') {
 
 /* 标签Tags */
 (function (App) {
-    var html = `<div class="u-formitem  u-formitem-2 u-formitem-4">
-                <label class="u-tt">标签</label>
-                <div class="u-cnt" >
-                    <ul class="m-tag" id="tags">
-                        <li class="tag u-btn tag-add">
-                            <input type="text" class="u-ipt">
-                            <span class="txt">+ 自定义标签</span>
-                        </li>
-                    </ul> 
-                </div>
-            </div>
-            <div class="u-formitem u-formitem-2 u-formitem-5">
-                <p class="u-tt">推荐标签</p>
-                <div class="u-cnt" >
-                    <ul class="m-tag" id="rcmdtags"></ul> 
-                </div>
-            </div>`;
+    var html = '<div class="u-formitem  u-formitem-2 u-formitem-4">\
+                <label class="u-tt">标签</label>\
+                <div class="u-cnt" >\
+                    <ul class="m-tag" id="tags">\
+                        <li class="tag u-btn tag-add">\
+                            <input type="text" class="u-ipt">\
+                            <span class="txt">+ 自定义标签</span>\
+                        </li>\
+                    </ul>\
+                </div>\
+            </div>\
+            <div class="u-formitem u-formitem-2 u-formitem-5">\
+                <p class="u-tt">推荐标签</p>\
+                <div class="u-cnt" >\
+                    <ul class="m-tag" id="rcmdtags"></ul>\
+                </div>\
+            </div>';
 
     /* options 参数说明
     * {
@@ -187,12 +187,10 @@ if (!window.App || typeof window.App !== 'object') {
                     return;
                 }
                 var nTag;
-                var html = `
-                <li class="tag u-btn">
-                    <button class="close">x</button>
-                    <span>${tag}</span>
-                </li>    
-                `;
+                var html = '<li class="tag u-btn">\
+                    <button class="close">x</button>\
+                    <span>' + tag + '</span>\
+                </li>';
                 nTag = _.html2node(html);
                 this.nTags.insertBefore(nTag, this.nAddTag);
                 //将标签存入数组
@@ -298,11 +296,11 @@ if (!window.App || typeof window.App !== 'object') {
         // 渲染推荐标签
         renderRcmdTags: function (tags) {
             var tagsArr = tags.split(',');
-            var rawTemplate = `{{#each tags}}
-                    <li class="tag u-btn u-btn-primary">
-                        <span>+ {{this}}</span>
-                    </li>
-                {{/each}}`;
+            var rawTemplate = '{{#each tags}}\
+                    <li class="tag u-btn u-btn-primary">\
+                        <span>+ {{this}}</span>\
+                    </li>\
+                {{/each}}';
             var template = Handlebars.compile(rawTemplate);
             var context = {
                 'tags': tagsArr
@@ -318,31 +316,25 @@ if (!window.App || typeof window.App !== 'object') {
 
 /* 上传图片 */
 (function (App) {
-    var html = `<div class="u-formitem u-formitem-1" id="m-uploadpics">
-                <label class="u-tt">上传图片</label>
-                <div class="u-cnt">
-                    <input type="file" id="upload" class="f-dn" accept="image/*" multiple="">
-                    <label for="upload" class="u-btn u-btn-primary u-btn-upload">选择图片上传</label>
-                    <!--进度条-->
-                    <span class="progress-wrap f-dn">
-                            <progress value="50" max="100" id="progress"></progress>
-                            <span id="progressInfo"></span>
-                        </span>
-                    <span class="tips">提示：作品可以包含多张图片，一次选择多张图片，最多不超过10张（单张图片大小 &lt; 1M）</span>
-                </div>
-            </div>
-            <!-- 上传图片列表 -->
-            <div class="uploadWorklist">
-                <div class="uploadWorklist-wrap">
-                    <ul class="m-works">
-                        <!--<li class="item" data-id="">
-                            <img src="${BASE_URL}/res/images/avatar.jpg" alt="">
-                            <button class="setcover u-btn">设为封面</button>
-                            <i class="u-icon u-icon-delete"></i>
-                        </li> -->
-                    </ul>
-                </div>
-            </div>`;
+    var html = '<div class="u-formitem u-formitem-1" id="m-uploadpics">\
+                <label class="u-tt">上传图片</label>\
+                <div class="u-cnt">\
+                    <input type="file" id="upload" class="f-dn" accept="image/*" multiple="">\
+                    <label for="upload" class="u-btn u-btn-primary u-btn-upload">选择图片上传</label>\
+                    <!--进度条-->\
+                    <span class="progress-wrap f-dn">\
+                            <progress value="50" max="100" id="progress"></progress>\
+                            <span id="progressInfo"></span>\
+                        </span>\
+                    <span class="tips">提示：作品可以包含多张图片，一次选择多张图片，最多不超过10张（单张图片大小 &lt; 1M）</span>\
+                </div>\
+            </div>\
+            <!-- 上传图片列表 -->\
+            <div class="uploadWorklist">\
+                <div class="uploadWorklist-wrap">\
+                    <ul class="m-works"></ul>\
+                </div>\
+            </div>';
 
     /* options 参数说明
     * {
@@ -438,9 +430,9 @@ if (!window.App || typeof window.App !== 'object') {
             if (typeExceedFiles.length > 0) {
                 var msg;
                 if (typeExceedFiles.length === 1) {
-                    msg = `<p class="modalmsg">文件 <em class="del-item-name">"${typeExceedFiles[0].name}"</em> 非图片类型，无法上传</p>`;
+                    msg = '<p class="modalmsg">文件 <em class="del-item-name">"' + typeExceedFiles[0].name + '"</em> 非图片类型，无法上传</p>';
                 } else {
-                    msg = `<p class="modalmsg"><em class="del-item-name">"${typeExceedFiles[0].name}"</em> 等 ${sizeExceedFiles.length} 文件非图片类型，无法上传</p>`;
+                    msg = '<p class="modalmsg"><em class="del-item-name">"' + typeExceedFiles[0].name + '"</em> 等 ' + sizeExceedFiles.length + ' 文件非图片类型，无法上传</p>';
                 }
                 tipModal.show(msg);
                 tipModal.on('closeModal', resolve);
@@ -452,9 +444,9 @@ if (!window.App || typeof window.App !== 'object') {
                 return new Promise(function (resolve) {
                     var msg;
                     if (sizeExceedFiles.length === 1) {
-                        msg = `<p class="modalmsg">图片 <em class="del-item-name">"${sizeExceedFiles[0].name}"</em> 超过 1M，无法上传</p>`;
+                        msg = '<p class="modalmsg">图片 <em class="del-item-name">"' + sizeExceedFiles[0].name + '"</em> 超过 1M，无法上传</p>';
                     } else {
-                        msg = `<p class="modalmsg"><em class="del-item-name">"${sizeExceedFiles[0].name}"</em> 等 ${sizeExceedFiles.length} 张图片超过 1M，无法上传</p>`;
+                        msg = '<p class="modalmsg"><em class="del-item-name">"' + sizeExceedFiles[0].name + '"</em> 等 ' + sizeExceedFiles.length + ' 张图片超过 1M，无法上传</p>';
                     }
                     tipModal.show(msg);
                     tipModal.on('closeModal', resolve);
@@ -549,7 +541,7 @@ if (!window.App || typeof window.App !== 'object') {
         // 初始化进度条信息 并显示进度条
         this.progressBar.max = totalSize;
         this.progressBar.value = 0;
-        this.progressInfo.innerHTML = `共 ${filesNum} 张图片，成功上传 0 张，上传进度 0%`;
+        this.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，成功上传 0 张，上传进度 0%';
         _.delClass(this.progressContainer, 'f-dn');
 
 
@@ -568,11 +560,12 @@ if (!window.App || typeof window.App !== 'object') {
             reader.onload = function (event) {
                 var previewUrl = event.target.result;
 
-                var html = `<li class="item" data-id="${picture.id}" data-url="${picture.url}">
-                                <img src="${previewUrl}" alt="${picture.name}">
-                                <button class="setcover u-btn">设为封面</button>
-                                <i class="u-icon u-icon-delete"></i>
-                            </li>`;
+                var html = '<li class="item" data-id="' + picture.id + '" data-url="' + picture.url + '">\
+                                <img src="' + previewUrl + '" alt="' + picture.name + '">\
+                                <button class="setcover u-btn">设为封面</button>\
+                                <i class="u-icon u-icon-delete"></i>\
+                            </li>';
+
                 var nPicture = _.html2node(html);
                 self.picsList.appendChild(nPicture);
             }
@@ -584,11 +577,11 @@ if (!window.App || typeof window.App !== 'object') {
             if (typeof window.FileReader !== 'undefined') {
                 previewImg(picture, file);
             } else {
-                var html = `<li class="item" data-id="${picture.id}" data-url="${picture.url}">
-                                <img src="${picture.url}" alt="${picture.name}">
-                                <button class="setcover u-btn">设为封面</button>
-                                <i class="u-icon u-icon-delete"></i>
-                            </li>`;
+                var html = '<li class="item" data-id="' + picture.id + '" data-url="' + picture.url + '">\
+                                <img src="' + picture.url + '" alt="' + picture.name + '">\
+                                <button class="setcover u-btn">设为封面</button>\
+                                <i class="u-icon u-icon-delete"></i>\
+                            </li>';
                 var nPicture = _.html2node(html);
                 self.picsList.appendChild(nPicture);
             }
@@ -606,7 +599,7 @@ if (!window.App || typeof window.App !== 'object') {
                     uploadProgress = 100;
                 }
                 // 更新进度条
-                self.progressInfo.innerHTML = `共 ${filesNum} 张图片，成功上传 ${uploadedFilesNum} 张，上传进度 ${uploadProgress}%`;
+                self.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，成功上传 ' + uploadedFilesNum + ' 张，上传进度 ' + uploadProgress + '%';
             }
         };
 
@@ -647,7 +640,7 @@ if (!window.App || typeof window.App !== 'object') {
                 }).then(function (response) {
                     // 追加上传成功文件个数 更新进度条
                     uploadedFilesNum++;
-                    self.progressInfo.innerHTML = `共 ${filesNum} 张图片，成功上传 ${uploadedFilesNum} 张，上传进度 ${uploadProgress}%`;
+                    self.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，成功上传 ' + uploadedFilesNum + ' 张，上传进度 ' + uploadProgress + '%';
                     // 本地添加文件显示
                     addImg(response.picture, response.file);
                 }).catch(function (errorinfo) {
@@ -658,7 +651,7 @@ if (!window.App || typeof window.App !== 'object') {
                     if (typeof MOCK !== 'undefined' && MOCK) {
                         // 追加上传成功文件个数 更新进度条
                         uploadedFilesNum++;
-                        self.progressInfo.innerHTML = `共 ${filesNum} 张图片，成功上传 ${uploadedFilesNum} 张，上传进度 ${uploadProgress}%`;
+                        self.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，成功上传 ' + uploadedFilesNum + ' 张，上传进度 ' + uploadProgress + '%';
                         // 本地添加文件显示
                         addImg(MOCK_POST_WORKS_UPLOAD.result, errorinfo.file);
                     } else {
@@ -685,15 +678,14 @@ if (!window.App || typeof window.App !== 'object') {
                     CHECK: false
                 });
                 var failFiles = failUploadFiles.join('、');
-                var msg = `<p class="modalmsg">${failUploadFiles.length} 张图片: <em class="del-item-name">"${failFiles}"</em> 上传失败</p>`;
+                var msg = '<p class="modalmsg">' + failUploadFiles.length + ' 张图片: <em class="del-item-name">"' + failFiles + '"</em> 上传失败</p>';
                 tipModal.show(msg);
             }
         }).catch(function (error) {
             console.log(error);
         })
 
-    }
-    ;
+    };
 
     // 阻塞上传合格图片
     UploadPics.prototype.uploadFiles = function (files) {
@@ -716,7 +708,7 @@ if (!window.App || typeof window.App !== 'object') {
         // 初始化进度条信息 并显示进度条
         this.progressBar.max = totalSize;
         this.progressBar.value = 0;
-        this.progressInfo.innerHTML = `共 ${filesNum} 张图片，正在上传第 1 张，上传进度 0%`;
+        this.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，正在上传第 1 张，上传进度 0%';
         _.delClass(this.progressContainer, 'f-dn');
 
 
@@ -740,11 +732,11 @@ if (!window.App || typeof window.App !== 'object') {
             reader.onload = function (event) {
                 var previewUrl = event.target.result;
 
-                var html = `<li class="item" data-id="${picture.id}" data-url="${picture.url}">
-                                <img src="${previewUrl}" alt="${picture.name}">
-                                <button class="setcover u-btn">设为封面</button>
-                                <i class="u-icon u-icon-delete"></i>
-                            </li>`;
+                var html = '<li class="item" data-id="' + picture.id + '" data-url="' + picture.url + '">\
+                                <img src="' + previewUrl + '" alt="' + picture.name + '">\
+                                <button class="setcover u-btn">设为封面</button>\
+                                <i class="u-icon u-icon-delete"></i>\
+                            </li>';
                 var nPicture = _.html2node(html);
                 self.picsList.appendChild(nPicture);
             }
@@ -758,11 +750,11 @@ if (!window.App || typeof window.App !== 'object') {
             if (typeof window.FileReader !== 'undefined') {
                 previewImg(picture);
             } else {
-                var html = `<li class="item" data-id="${picture.id}" data-url="${picture.url}">
-                                <img src="${picture.url}" alt="${picture.name}">
-                                <button class="setcover u-btn">设为封面</button>
-                                <i class="u-icon u-icon-delete"></i>
-                            </li>`;
+                var html = '<li class="item" data-id="' + picture.id + '" data-url="' + picture.url + '">\
+                                <img src="' + picture.url + '" alt="' + picture.name + '">\
+                                <button class="setcover u-btn">设为封面</button>\
+                                <i class="u-icon u-icon-delete"></i>\
+                            </li>';
                 var nPicture = _.html2node(html);
                 self.picsList.appendChild(nPicture);
             }
@@ -778,7 +770,8 @@ if (!window.App || typeof window.App !== 'object') {
                 if (pg > 100) {
                     pg = 100;
                 }
-                self.progressInfo.innerHTML = `共 ${filesNum} 张图片，正在上传第 ${uploadingFileIndex + 1} 张，上传进度 ${pg}%`;
+                self.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，正在上传第 ' + (uploadingFileIndex + 1) +
+                    ' 张，上传进度 ' + pg + '%';
             }
         };
 
@@ -802,7 +795,7 @@ if (!window.App || typeof window.App !== 'object') {
                         CHECK: false
                     });
                     var failsNames = failUploadFiles.join('、');
-                    var msg = `<p class="modalmsg">${failUploadFiles.length} 张图片 <em class="del-item-name">"${failsNames}"</em> 上传失败</p>`;
+                    var msg = '<p class="modalmsg">' + failUploadFiles.length + ' 张图片 <em class="del-item-name">"' + failsNames + '"</em> 上传失败</p>';
                     tipModal.show(msg);
                 }
                 return;

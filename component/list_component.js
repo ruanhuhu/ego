@@ -5,20 +5,20 @@ if (!window.App || typeof window.App !== 'object') {
 
 /* 用户信息 */
 (function (App) {
-    var template = Handlebars.compile(`<div class="u-avatar">
-        <img src="{{ avatar_url }}" alt="用户头像">
-    </div>
-    <div class="u-info">
-        <em class="u-name f-thide" title="">{{ nickname }}</em><span class="sex"><em class="u-icon {{ sex }}"></em></span>
-    </div>
-    <div class="u-info">
-        <em class="age">{{ age }}岁</em>&nbsp;
-        <em class="constellation">{{ constellation }}座</em>&nbsp;&nbsp;&nbsp;
-        <span class="address-info">
-            <em class="u-icon u-icon-address"></em>
-            <em class="address">{{ address }}</em>
-        </span>
-    </div>`);
+    var template = Handlebars.compile('<div class="u-avatar">\
+        <img src="{{ avatar_url }}" alt="用户头像">\
+    </div>\
+    <div class="u-info">\
+        <em class="u-name f-thide" title="">{{ nickname }}</em><span class="sex"><em class="u-icon {{ sex }}"></em></span>\
+    </div>\
+    <div class="u-info">\
+        <em class="age">{{ age }}岁</em>&nbsp;\
+        <em class="constellation">{{ constellation }}座</em>&nbsp;&nbsp;&nbsp;\
+        <span class="address-info">\
+            <em class="u-icon u-icon-address"></em>\
+            <em class="address">{{ address }}</em>\
+        </span>\
+    </div>');
 
     /**
      * options 参数说明
@@ -110,14 +110,14 @@ if (!window.App || typeof window.App !== 'object') {
 
 /* 侧边栏 */
 (function (App) {
-    var template = `<ul>
-        <li class="dot"><a>个人中心</a></li>
-        <li class="z-select"><a>我的作品</a></li>
-        <li><a>我关注的</a></li>
-        <li><a>我的圈子</a></li>
-        <li><a>消息提醒</a></li>
-        <li><a>隐私设置</a></li>
-    </ul>`;
+    var template = '<ul>\
+        <li class="dot"><a>个人中心</a></li>\
+        <li class="z-select"><a>我的作品</a></li>\
+        <li><a>我关注的</a></li>\
+        <li><a>我的圈子</a></li>\
+        <li><a>消息提醒</a></li>\
+        <li><a>隐私设置</a></li>\
+    </ul>';
 
     /**
      * options 参数说明
@@ -287,13 +287,13 @@ if (!window.App || typeof window.App !== 'object') {
 
 /* 作品列表 */
 (function (App) {
-    var template = `<div>
-        <h2 class="title">/ 我 的 发 表 作 品 /</h2>
-        <a href="${BASE_URL}/html/works/create.html">
-            <button id="upload" class="u-btn u-btn-primary">上传作品</button>
-        </a>
-        <ul class="m-works" id="workslist"></ul>
-        </div>`;
+    var template = '<div>\
+        <h2 class="title">/ 我 的 发 表 作 品 /</h2>\
+        <a href="' + BASE_URL + '/html/works/create.html">\
+            <button id="upload" class="u-btn u-btn-primary">上传作品</button>\
+        </a>\
+        <ul class="m-works" id="workslist"></ul>\
+        </div>';
 
     var DEFAULT_QUERY_LIMIT = 15;   // 请求条数
 
@@ -391,26 +391,24 @@ if (!window.App || typeof window.App !== 'object') {
         });
     };
 
-    WorksList.prototype.renderList = function(list){
+    WorksList.prototype.renderList = function (list) {
         //拼装列表的 html 字符串
-        var rawTemplate = `
-                {{#each works}}
-                <li class="item" data-id="{{this.id}}">
-                    <a>
-                        {{#if this.coverUrl}}
-                        <img src="{{this.coverUrl}}" alt="{{this.name}}">
-                        {{else}}
-                        <img src="${BASE_URL}/res/images/default_cover.png" alt="作品默认封面">
-                        {{/if}}
-                        <h3 class="f-thide">{{this.name}}</h3>
-                    </a>
-                    <div class="icons f-dn">
-                        <i class="u-icon u-icon-delete"></i>
-                        <i class="u-icon u-icon-edit"></i>
-                    </div>
-                </li>
-                {{/each}}
-            `;
+        var rawTemplate = '{{#each works}}\
+                <li class="item" data-id="{{this.id}}">\
+                    <a>\
+                        {{#if this.coverUrl}}\
+                        <img src="{{this.coverUrl}}" alt="{{this.name}}">\
+                        {{else}}\
+                        <img src="${BASE_URL}/res/images/default_cover.png" alt="作品默认封面">\
+                        {{/if}}\
+                        <h3 class="f-thide">{{this.name}}</h3>\
+                    </a>\
+                    <div class="icons f-dn">\
+                        <i class="u-icon u-icon-delete"></i>\
+                        <i class="u-icon u-icon-edit"></i>\
+                    </div>\
+                </li>\
+                {{/each}}';
         var template = Handlebars.compile(rawTemplate);
         var context = {
             'works': list
@@ -468,21 +466,19 @@ if (!window.App || typeof window.App !== 'object') {
         modal.show();
     };
 
-    WorksList.prototype.editWorks = function(options,nWork){
+    WorksList.prototype.editWorks = function (options, nWork) {
         var nInput, nError;
         var modal = new App.Modal({
             HEAD: true,
             title: '请输入新的作品名称',
-            content: `
-                <input class="item-name-ipt" value="${options.name}"/>
-                <i class='f-dn'></i>`,
+            content: '<input class="item-name-ipt" value="' + options.name + '"/><i class="f-dn"></i>',
             FOOT: true
         });
-        modal.on('confirmModal', function(){
+        modal.on('confirmModal', function () {
             var newName = nInput.value.trim();
 
             // 如果新名称为空字符串，则返回错误提示
-            if(newName === ''){
+            if (newName === '') {
                 nError = modal.nBody.querySelector('i');
                 nError.innerText = '名称不能为空';
                 _.addClass(nError, 'item-name-error');

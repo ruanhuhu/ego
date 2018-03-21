@@ -8,16 +8,16 @@ if (!window.App || typeof window.App !== 'object') {
 (function (App) {
 
     // 模板
-    var template = Handlebars.compile(`<div class="m-tabs {{class}}" id="{{id}}">
-		<ul>
-			{{#each nTabData}}
-				<li><a href="{{url}}">{{name}}</a></li>
-			{{/each}}
-		</ul>
-		<div class="tabs-track">
-			<div class="tabs-thumb"></div>
-		</div>
-	</div>`);
+    var template = Handlebars.compile('<div class="m-tabs {{class}}" id="{{id}}">\
+		<ul>\
+			{{#each nTabData}}\
+				<li><a href="{{url}}">{{name}}</a></li>\
+			{{/each}}\
+		</ul>\
+		<div class="tabs-track">\
+			<div class="tabs-thumb"></div>\
+		</div>\
+	</div>');
 
     /** options 参数说明
      * {
@@ -93,13 +93,13 @@ if (!window.App || typeof window.App !== 'object') {
 /* Search */
 (function (App) {
     // 模板
-    var template = `<div class="m-topsrch">
-            <form class="m-search" action="${PAGES_URL}/search" id="search" method="GET">
-                <input type="text" id="keyword" name="keyword" placeholder="输入搜索内容" autocomplete="off">
-                <button type="submit"><i class="u-icon u-icon-search"></i></button>
-                <span class="icon-txt">搜索</span>
-            </form>
-        </div>`;
+    var template = '<div class="m-topsrch">\
+            <form class="m-search" action="' + PAGES_URL + '/search" id="search" method="GET">\
+                <input type="text" id="keyword" name="keyword" placeholder="输入搜索内容" autocomplete="off">\
+                <button type="submit"><i class="u-icon u-icon-search"></i></button>\
+                <span class="icon-txt">搜索</span>\
+            </form>\
+        </div>';
 
     /**
      * options 参数说明
@@ -148,10 +148,10 @@ if (!window.App || typeof window.App !== 'object') {
 /* Guest emit: toLogin、toRegister */
 (function (App) {
     // 模版
-    var template = `<div class="m-guest f-dn" id="guest" style>
-            <button class="u-btn u-btn-primary u-btn-icon" id="login"><i class="u-icon u-icon-user"></i>登&nbsp;&nbsp;录</button>
-            <button class="u-btn" id="register">注&nbsp;&nbsp;册</button>
-        </div>`;
+    var template = '<div class="m-guest f-dn" id="guest" style>\
+            <button class="u-btn u-btn-primary u-btn-icon" id="login"><i class="u-icon u-icon-user"></i>登&nbsp;&nbsp;录</button>\
+            <button class="u-btn" id="register">注&nbsp;&nbsp;册</button>\
+        </div>';
 
     /**
      * options 参数说明
@@ -218,22 +218,22 @@ if (!window.App || typeof window.App !== 'object') {
 /* User emit: notLoggedin */
 (function (App) {
     // 模版
-    var template = `<div class="m-user  f-dn" id="userdropdown">
-            <div class="u-info">
-                <span class="u-avatar"><img src="${BASE_URL}/res/images/avater.png" alt="个人头像"></span>
-                <span>
-                    <span class="u-name f-thide" id="name"></span>
-                    <span class="u-icon"></span>
-                </span>
-            </div>
-            <span class="u-icon u-icon-down"></span>
-            <ul class="user-list f-cb f-dn">
-                <li><a>个人中心</a></li>
-                <li><a>信息</a></li>
-                <li><a>设置</a></li>
-                <li id="logout"><a>退出账号</a></li>
-            </ul>
-        </div>`;
+    var template = '<div class="m-user  f-dn" id="userdropdown">\
+            <div class="u-info">\
+                <span class="u-avatar"><img src="' + BASE_URL + '/res/images/avater.png" alt="个人头像"></span>\
+                <span>\
+                    <span class="u-name f-thide" id="name"></span>\
+                    <span class="u-icon"></span>\
+                </span>\
+            </div>\
+            <span class="u-icon u-icon-down"></span>\
+            <ul class="user-list f-cb f-dn">\
+                <li><a>个人中心</a></li>\
+                <li><a>信息</a></li>\
+                <li><a>设置</a></li>\
+                <li id="logout"><a>退出账号</a></li>\
+            </ul>\
+        </div>';
 
     /**
      * options 参数说明
@@ -332,30 +332,30 @@ if (!window.App || typeof window.App !== 'object') {
 
 /* 通用 Modal emit: closeModal、confirmModal、cancelModal*/
 (function (App) {
-    var str = `<div>
-            <div class="m-modal">
-                {{#if HEAD}}
-                    <div class="modal-head">标题</div>
-                {{/if}}
-                <div class="modal-body">内容</div>
-                {{#if FOOT}}
-                    <div class="modal-foot toggle hover">
-                        <label>
-                            <input type="radio" checked>
-                            <button class="u-btn confirm">确认</button>
-                        </label>
-                        {{#if CANCEL}}
-                        <label>
-                            <input type="radio">
-                            <button class="u-btn cancel">取消</button>
-                        </label>
-                        {{/if}}
-                    </div>
-                {{/if}}
-                <span class="close u-icon u-icon-close" title="关闭"></span>
-            </div>
-            <div class="m-modal-mask"></div>
-        </div>`;
+    var str = '<div>\
+            <div class="m-modal">\
+                {{#if HEAD}}\
+                    <div class="modal-head">标题</div>\
+                {{/if}}\
+                <div class="modal-body">内容</div>\
+                {{#if FOOT}}\
+                    <div class="modal-foot toggle hover">\
+                        <label>\
+                            <input type="radio" checked>\
+                            <button class="u-btn confirm">确认</button>\
+                        </label>\
+                        {{#if CANCEL}}\
+                        <label>\
+                            <input type="radio">\
+                            <button class="u-btn cancel">取消</button>\
+                        </label>\
+                        {{/if}}\
+                    </div>\
+                {{/if}}\
+                <span class="close u-icon u-icon-close" title="关闭"></span>\
+            </div>\
+            <div class="m-modal-mask"></div>\
+        </div>';
 
 
     /**
@@ -517,12 +517,12 @@ if (!window.App || typeof window.App !== 'object') {
 /* 导航顶栏 emit: toLogin、toRegister notLoggedin ; on: loggedin */
 (function (App) {
     // 模版
-    var template = `<div class="m-nav f-cb">
-        <!-- logo -->
-        <h1 class="u-icon u-icon-logo">
-            <a hidefocus="true" href="${BASE_URL}">ego /漫画学园/</a>
-        </h1>
-    </div>`;
+    var template = '<div class="m-nav f-cb">\
+        <!-- logo -->\
+        <h1 class="u-icon u-icon-logo">\
+            <a hidefocus="true" href="' + BASE_URL + '">ego /漫画学园/</a>\
+        </h1>\
+    </div>';
 
     /**
      * options 参数说明

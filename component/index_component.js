@@ -159,34 +159,34 @@ if (!window.App || typeof window.App !== 'object') {
  * emit：toRegister、loggedin (closeModal 继承自通用 Modal)
  */
 (function (App) {
-    var html = `<div>
-        <div class="modal-tt">
-            <strong class="wlcm">欢迎回来</strong>
-            <span class="goreg">还没有账号？&nbsp;&nbsp;<a class="u-link" id="goregister">立即注册</a></span>
-        </div>
-        <!--<form class="m-form m-form-1" autocomplete="off" id="loginform">-->
-        <form class="m-form m-form-1" id="loginform">
-            <div class="u-formitem">
-                <input type="text" id="username" placeholder="手机号" class="formitem-ct u-ipt">
-            </div>
-            <div class="u-formitem">
-                <input type="password" id="password" autocomplete="new-password" placeholder="密&nbsp;码" class="formitem-ct u-ipt">
-            </div>
-            <div class="u-formitem u-formitem-1 f-cb">
-                <label for="remember" class="u-checkbox u-checkbox-remember">
-                    <input type="checkbox" id="remember">
-                    <i class="u-icon u-icon-checkbox"></i>
-                    <i class="u-icon u-icon-checkboxchecked"></i>
-                    <span>保持登录</span>
-                </label>
-                <span class="forget"><a>忘记密码？</a></span>
-            </div>
-            <div class="u-formitem u-formitem-1 f-dn">
-                <span class="u-icon u-icon-error"></span><span id="errormsg"></span>
-            </div>
-            <button class="u-btn u-btn-primary" type="submit">登&nbsp;&nbsp;录</button>
-        </form>
-    </div>`;
+    var html = '<div>\
+        <div class="modal-tt">\
+            <strong class="wlcm">欢迎回来</strong>\
+            <span class="goreg">还没有账号？&nbsp;&nbsp;<a class="u-link" id="goregister">立即注册</a></span>\
+        </div>\
+        <!--<form class="m-form m-form-1" autocomplete="off" id="loginform">-->\
+        <form class="m-form m-form-1" id="loginform">\
+            <div class="u-formitem">\
+                <input type="text" id="username" placeholder="手机号" class="formitem-ct u-ipt">\
+            </div>\
+            <div class="u-formitem">\
+                <input type="password" id="password" autocomplete="new-password" placeholder="密&nbsp;码" class="formitem-ct u-ipt">\
+            </div>\
+            <div class="u-formitem u-formitem-1 f-cb">\
+                <label for="remember" class="u-checkbox u-checkbox-remember">\
+                    <input type="checkbox" id="remember">\
+                    <i class="u-icon u-icon-checkbox"></i>\
+                    <i class="u-icon u-icon-checkboxchecked"></i>\
+                    <span>保持登录</span>\
+                </label>\
+                <span class="forget"><a>忘记密码？</a></span>\
+            </div>\
+            <div class="u-formitem u-formitem-1 f-dn">\
+                <span class="u-icon u-icon-error"></span><span id="errormsg"></span>\
+            </div>\
+            <button class="u-btn u-btn-primary" type="submit">登&nbsp;&nbsp;录</button>\
+        </form>\
+    </div>';
 
 
     /* options 参数说明
@@ -357,7 +357,7 @@ if (!window.App || typeof window.App !== 'object') {
         render: function (data, defaultIndex) {
             var optionsHTML = '';
             for (var i = 0; i < data.length; i++) {
-                optionsHTML += `<li data-index=${i}>${data[i].name}</li>`;
+                optionsHTML += '<li data-index=' + i + '>' + data[i].name + '</li>';
             }
             this.nOption.innerHTML = optionsHTML;
             this.nOptions = this.nOption.children;
@@ -510,68 +510,68 @@ if (!window.App || typeof window.App !== 'object') {
  */
 (function (App) {
     var validator = App.validator;
-    var template = `<div>
-        <div class="u-regmdlogo"><img src="${BASE_URL}/res/images/logo.png" alt="logo"></div>
-        <form class="m-form m-form-2" id="registerform" autocomplete="off">
-            <!-- 手机号/username -->
-            <div class="u-formitem">
-                <label for="phone" class="formitem-tt">手机号</label><input type="text" id="phone" placeholder="请输入11位手机号码" class="formitem-ct u-ipt">
-            </div>
-            <!-- 昵称／nickname -->
-            <div class="u-formitem">
-                <label for="nickname" class="formitem-tt">昵称</label><input type="text" id="nick" placeholder="中英文均可，至少8个字符" class="formitem-ct u-ipt">
-            </div>
-            <!-- 密码/password -->
-            <div class="u-formitem">
-                <label for="reg-password" class="formitem-tt">密码</label><input type="password" id="pwd" placeholder="长度6-16个字符，不包含空格" class="formitem-ct u-ipt" autocomplete="new-password">
-            </div>
-            <!-- 确认密码/confirm password -->
-            <div class="u-formitem">
-                <label for="reg-password-2" class="formitem-tt">确认密码</label><input type="password" id="confirmpwd" placeholder="长度6-16个字符，不包含空格" class="formitem-ct u-ipt" autocomplete="new-password">
-            </div>
-            <!-- 性别/sex -->
-            <div class="u-formitem"  id="sex">
-                <label class="formitem-tt">性别</label>
-                <label for="male" class="formitem-ct formitem-ct-sex u-radio u-radio-checked"><input type="radio" id="male" name="sex" value="0" checked><i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>少 男</label><label for="female" class="formitem-ct formitem-ct-sex u-radio u-radio-checked"><input type="radio" id="female" name="sex" value="1"><i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>少 女</label>
-            </div>
-            <!-- 生日／birthday: year month day -->
-            <div class="u-formitem">
-                <label for="" class="formitem-tt">生日</label>
-                <div class="formitem-ct">
-                    <div class="m-cascadeselect" id="birthday">
-                    </div>
-                </div>
-            </div>
-            <!-- 所在地／location: province city district -->
-            <div class="u-formitem">
-                <label for="" class="formitem-tt">所在地</label>
-                <div class="formitem-ct">
-                    <div class="m-cascadeselect" id="location">
-                    </div>
-                </div>
-            </div>
-            <!-- 验证码/captcha -->
-            <div class="u-formitem">
-                <label for="" class="formitem-tt">验证码</label>
-                <div class="formitem-ct formitem-ct-validate">
-                    <input type="text" id="captcha" class="u-ipt">
-                    <img src="` + _.getApiUrl('/captcha') + `" alt="验证码" id="captchaimg">
-                </div>
-            </div>
-            <div class="u-formitem u-formitem-1 u-formitem-2">
-                <label for="agreement" class="u-checkbox u-checkbox-remember">
-                    <input type="checkbox" id="agreement">
-                    <i class="u-icon u-icon-checkbox"></i>
-                    <i class="u-icon u-icon-checkboxchecked"></i>
-                    <span>我已阅读并同意相关条款</span>
-                </label>
-            </div>
-            <!-- 错误提示 -->
-            <div class="u-formitem u-formitem-1 f-dn"><span class="u-icon u-icon-error"></span><span id="errormsg">输入有误</span></div>
-            <!-- 提交注册 -->
-            <button class="u-btn u-btn-primary" type="submit">注&nbsp;&nbsp;册</button>
-        </form>
-    </div>`;
+    var template = '<div>\
+        <div class="u-regmdlogo"><img src="' + BASE_URL + '/res/images/logo.png" alt="logo"></div>\
+        <form class="m-form m-form-2" id="registerform" autocomplete="off">\
+            <!-- 手机号/username -->\
+            <div class="u-formitem">\
+                <label for="phone" class="formitem-tt">手机号</label><input type="text" id="phone" placeholder="请输入11位手机号码" class="formitem-ct u-ipt">\
+            </div>\
+            <!-- 昵称／nickname -->\
+            <div class="u-formitem">\
+                <label for="nickname" class="formitem-tt">昵称</label><input type="text" id="nick" placeholder="中英文均可，至少8个字符" class="formitem-ct u-ipt">\
+            </div>\
+            <!-- 密码/password -->\
+            <div class="u-formitem">\
+                <label for="reg-password" class="formitem-tt">密码</label><input type="password" id="pwd" placeholder="长度6-16个字符，不包含空格" class="formitem-ct u-ipt" autocomplete="new-password">\
+            </div>\
+            <!-- 确认密码/confirm password -->\
+            <div class="u-formitem">\
+                <label for="reg-password-2" class="formitem-tt">确认密码</label><input type="password" id="confirmpwd" placeholder="长度6-16个字符，不包含空格" class="formitem-ct u-ipt" autocomplete="new-password">\
+            </div>\
+            <!-- 性别/sex -->\
+            <div class="u-formitem"  id="sex">\
+                <label class="formitem-tt">性别</label>\
+                <label for="male" class="formitem-ct formitem-ct-sex u-radio u-radio-checked"><input type="radio" id="male" name="sex" value="0" checked><i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>少 男</label><label for="female" class="formitem-ct formitem-ct-sex u-radio u-radio-checked"><input type="radio" id="female" name="sex" value="1"><i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>少 女</label>\
+            </div>\
+            <!-- 生日／birthday: year month day -->\
+            <div class="u-formitem">\
+                <label for="" class="formitem-tt">生日</label>\
+                <div class="formitem-ct">\
+                    <div class="m-cascadeselect" id="birthday">\
+                    </div>\
+                </div>\
+            </div>\
+            <!-- 所在地／location: province city district -->\
+            <div class="u-formitem">\
+                <label for="" class="formitem-tt">所在地</label>\
+                <div class="formitem-ct">\
+                    <div class="m-cascadeselect" id="location">\
+                    </div>\
+                </div>\
+            </div>\
+            <!-- 验证码/captcha -->\
+            <div class="u-formitem">\
+                <label for="" class="formitem-tt">验证码</label>\
+                <div class="formitem-ct formitem-ct-validate">\
+                    <input type="text" id="captcha" class="u-ipt">\
+                    <img src="' + _.getApiUrl('/captcha') + '" alt="验证码" id="captchaimg">\
+                </div>\
+            </div>\
+            <div class="u-formitem u-formitem-1 u-formitem-2">\
+                <label for="agreement" class="u-checkbox u-checkbox-remember">\
+                    <input type="checkbox" id="agreement">\
+                    <i class="u-icon u-icon-checkbox"></i>\
+                    <i class="u-icon u-icon-checkboxchecked"></i>\
+                    <span>我已阅读并同意相关条款</span>\
+                </label>\
+            </div>\
+            <!-- 错误提示 -->\
+            <div class="u-formitem u-formitem-1 f-dn"><span class="u-icon u-icon-error"></span><span id="errormsg">输入有误</span></div>\
+            <!-- 提交注册 -->\
+            <button class="u-btn u-btn-primary" type="submit">注&nbsp;&nbsp;册</button>\
+        </form>\
+    </div>';
 
     /* options 参数说明
     * {
@@ -913,48 +913,48 @@ if (!window.App || typeof window.App !== 'object') {
         },
         getStarlist: function () {
             var urlMock = '';
-            if(window.App.user.username !== undefined){
+            if (window.App.user.username !== undefined) {
                 urlMock = '/api/users?getstarlist?loggedin';
             } else {
                 urlMock = '/api/users?getstarlist?notLoggedin';
             }
             _.ajax({
                 url: _.getApiUrl(urlMock),
-                success: function(data) {
+                success: function (data) {
                     if (data.code == 200) {
                         this.starsInfo = data.result;
                         this.render(data.result);
                     }
                 }.bind(this),
-                fail: function() {}
+                fail: function () {
+                }
             })
         },
-        render: function(data) {
+        render: function (data) {
             var html = "";
-            data.forEach(function(item) {
+            data.forEach(function (item) {
                 html += this.renderItem(item);
             }.bind(this));
             this.container.innerHTML = html;
         },
-        renderItem: function(data) {
+        renderItem: function (data) {
             var config = followConfig[Number(!!data.isFollow)];
-            var html = `
-                <li class="m-card">
-                    <img src="${BASE_URL}/res/images/avatar${data.id}.jpg" alt="头像" class="card-avatar">
-                    <div class="card-info">
-                        <div class="u-name f-thide">${data.nickname}</div>
-                        <div>
-                            <span class="u-works">作品&nbsp;&nbsp;${data.workCount}</span>
-                            <span class="u-fans">粉丝&nbsp;&nbsp;${data.followCount}</span>
-                        </div>
-                    </div>
-                    <button class="u-btn u-btn-sm ${config.class}" data-userid="${data.id}">
-                        <span class="u-icon ${config.icon}"></span>${config.text}
-                    </button>
-                </li>`;
+            var html = '<li class="m-card">\
+                    <img src="' + BASE_URL + '/res/images/avatar' + data.id + '.jpg" alt="头像" class="card-avatar">\
+                    <div class="card-info">\
+                        <div class="u-name f-thide">' + data.nickname + '</div>\
+                        <div>\
+                            <span class="u-works">作品&nbsp;&nbsp;' + data.workCount + '</span>\
+                            <span class="u-fans">粉丝&nbsp;&nbsp;' + data.followCount + '</span>\
+                        </div>\
+                    </div>\
+                    <button class="u-btn u-btn-sm ' + config.class + '" data-userid="' + data.id + '">\
+                        <span class="u-icon ' + config.icon + '"></span>' + config.text + '\
+                    </button>\
+                </li>';
             return html;
         },
-        followHandler: function(event) {
+        followHandler: function (event) {
             var target = event.target;
             if (event.target.tagName === "BUTTON") {
                 var user = window.App.user;

@@ -161,17 +161,17 @@
             var html = '';
 
             // 侧边栏 我的作品
-            html += `<div class="m-section m-mywork">
-                <h4 class="section-head">
-                    <i class="u-icon u-icon-sideavatar"></i> 我 的 作 品
-                    <span class="section-more">
-                        <a href="javascript:void(0);"><i class="u-icon u-icon-moredown"></i></a>
-                    </span>
-                </h4>
-                <ul class="section-cnt m-list f-cb">
-                    <li><a><img src="${BASE_URL}/res/images/avatar64541.jpg" alt="作品1"></a></li>
-                </ul>
-            </div>`;
+            html += '<div class="m-section m-mywork">\
+                <h4 class="section-head">\
+                    <i class="u-icon u-icon-sideavatar"></i> 我 的 作 品\
+                    <span class="section-more">\
+                        <a href="javascript:void(0);"><i class="u-icon u-icon-moredown"></i></a>\
+                    </span>\
+                </h4>\
+                <ul class="section-cnt m-list f-cb">\
+                    <li><a><img src="' + BASE_URL + '/res/images/avatar64541.jpg" alt="作品1"></a></li>\
+                </ul>\
+            </div>';
 
             // 侧边栏 圈子
             html += App.template.aside_groups({
