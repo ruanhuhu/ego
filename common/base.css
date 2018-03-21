@@ -24,6 +24,11 @@ input:focus {
     outline: 0;
 }
 
+em{
+    font-style: normal;
+    font-weight: normal;
+}
+
 html,
 body,
 fieldset,
