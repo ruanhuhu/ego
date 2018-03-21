@@ -16,7 +16,7 @@ window.App.localEmitter = (function () {
          * 参数：   event | string | 要注册的事件名称
          * 参数：  fn | function | 要注册的事件回调函数
          * 返回值： object | 要注册事件的对象
-        **/
+         **/
         on: function (event, fn) {
             var handles = this._handles || (this._handles = {}),    // 事件管理对象
                 calls = handles[event] || (handles[event] = []);    // 对应事件的回调函数数组
@@ -32,7 +32,7 @@ window.App.localEmitter = (function () {
          * 参数：  event | string | 要解绑的事件名称
          * 参数：  fn | function | 要解绑的事件回调函数
          * 返回值： object | 要解绑事件的对象
-        **/
+         **/
         off: function (event, fn) {
             // if (!event || !this._handles) this._handles = {};
             // 如果事件管理对象不存在 返回
@@ -63,7 +63,7 @@ window.App.localEmitter = (function () {
          * 描述：  触发事件
          * 参数：   event | string | 要触发的事件名称
          * 返回值： object | 要触发事件的对象
-        **/
+         **/
         emit: function (event) {
             var args = [].slice.call(arguments, 1), // 触发事件时要传递的参数
                 handles = this._handles,
@@ -93,7 +93,7 @@ window.App.emitter = (function () {
          * 描述：  注册事件
          * 参数：   event | string | 要注册的事件名称
          * 参数：  fn | function | 要注册的事件回调函数
-        **/
+         **/
         on: function (event, fn) {
             // 对应事件的回调函数数组
             var calls = _handles[event] || (_handles[event] = []);
@@ -105,7 +105,7 @@ window.App.emitter = (function () {
          * 描述：  解绑事件
          * 参数：  event | string | 要解绑的事件名称
          * 参数：  fn | function | 要解绑的事件回调函数
-        **/
+         **/
         off: function (event, fn) {
             var calls = _handles[event];
             // 对应事件有无回调函数
@@ -128,7 +128,7 @@ window.App.emitter = (function () {
          * 描述：  触发事件
          * 参数：   event | string | 要触发的事件名称
          * 返回值： object | 要触发事件的对象
-        **/
+         **/
         emit: function (event) {
             var args = [].slice.call(arguments, 1), // 触发事件时要传递的参数
                 calls;

@@ -1,7 +1,7 @@
 /* 创建作品页面 */
-(function(App){
+(function (App) {
     var page = {
-        init: function() {
+        init: function () {
             // 初始化导航栏
             this.initNav();
 
@@ -9,13 +9,13 @@
             this.initForm();
         },
         // 导航栏
-        initNav: function() {
+        initNav: function () {
             this.nav = new App.Nav({
                 container: _.$('.g-header')
             });
         },
         // 表单
-        initForm: function(){
+        initForm: function () {
             // 标签
             this.initTags();
             // 授权
@@ -27,26 +27,26 @@
         },
 
         // 标签
-        initTags: function(){
+        initTags: function () {
             this.tags = new App.Tags({
                 parent: _.$('#m-tags')
             });
         },
 
         // 作品授权选择器
-        initAuthorSlct: function(){
+        initAuthorSlct: function () {
             this.authorSlct = new App.Select({
                 container: _.$('#authorization').querySelector('.u-cnt')
             });
             var authorData = [
-                { value: 0, name: '不限制作品用途' }, 
-                { value: 1, name: '禁止匿名转载；禁止商业使用'}
+                {value: 0, name: '不限制作品用途'},
+                {value: 1, name: '禁止匿名转载；禁止商业使用'}
             ];
             this.authorSlct.render(authorData);
         },
 
         // 上传图片
-        initUploadPics: function(){
+        initUploadPics: function () {
             this.uploadPics = new App.UploadPics({
                 container: _.$('#m-uploadpics')
             })
@@ -60,7 +60,7 @@
         // 上传表单
         submitForm: function (e) {
             e.preventDefault();
-            if(this.checkForm()){
+            if (this.checkForm()) {
                 _.ajax({
                     url: _.getApiUrl('/api/works', 'POST'),
                     method: _.fixMethod('POST'),
@@ -100,7 +100,7 @@
             var uploadResult = this.uploadPics.getValue();
             this.pictures = uploadResult.pictures;
             // 若没有上传图片，返回错误
-            if( this.pictures.length === 0){
+            if (this.pictures.length === 0) {
                 var tipModal = new App.Modal({
                     HEAD: true,
                     FOOT: true,
@@ -112,7 +112,7 @@
             }
 
             // 若用户没有设置封面，默认为第一张图
-            if(!uploadResult.coverId){
+            if (!uploadResult.coverId) {
                 this.coverId = this.pictures[0].id;
                 this.coverUrl = this.pictures[0].url;
             } else {
@@ -157,7 +157,7 @@
     App.user = {};
 
     //页面初始化
-    document.addEventListener('DOMContentLoaded', function(e){
+    document.addEventListener('DOMContentLoaded', function (e) {
         page.init();
     });
 })(window.App)

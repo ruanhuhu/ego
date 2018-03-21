@@ -124,7 +124,7 @@
      * 描述： 将原url解析为获取Mock数据的url地址
      * 参数：
      * 返回值：
-    **/
+     **/
     _.getApiUrl = function (url, method) {
         var mock_url = '';
         method = method || 'GET';
@@ -136,7 +136,7 @@
      * 描述：  为获取Mock数据添加时间标签 防止缓存
      * 参数：
      * 返回值：
-    **/
+     **/
     _.mockTime = function () {
         var date = new Date();
 
@@ -152,10 +152,10 @@
      * 描述：  某些环境下获取模拟数据只能使用get方法
      * 参数：
      * 返回值：
-    **/
+     **/
     _.fixMethod = function (method) {
         // 若在 config.js 中开启 FIX_METHOD，将所有请求方式置换为 GET
-        if(typeof FIX_METHOD !== 'undefined' && FIX_METHOD) {
+        if (typeof FIX_METHOD !== 'undefined' && FIX_METHOD) {
             method = 'GET';
         }
         return method;
@@ -171,7 +171,7 @@
      *          fail: func      请求失败后的回调函数
      *      }
      * 返回值：
-    **/
+     **/
     _.ajax = function (options) {
         options = options || {};
         //指定提交方式的默认值

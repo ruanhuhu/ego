@@ -7,7 +7,7 @@ if (!window.App || typeof window.App !== 'object') {
  * 描述：  验证数据
  * 参数：
  * 返回值：
-**/
+ **/
 window.App.validator = (function () {
     return {
         // 是否为空
@@ -25,10 +25,10 @@ window.App.validator = (function () {
         // 长度验证 [min, max]
         isLength: function (value, min, max) {
             var length = value.toString().length;
-            if(!max){
+            if (!max) {
                 return length <= min;
             }
-            if(min > max){
+            if (min > max) {
                 var p = min;
                 min = max;
                 max = p;

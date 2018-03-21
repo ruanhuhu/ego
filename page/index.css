@@ -73,7 +73,7 @@
 
 .m-original li:first-child a,
 .m-fans li:first-child a,
-.m-copy li:first-child a{
+.m-copy li:first-child a {
     height: 260px;
 }
 
@@ -141,8 +141,6 @@
     height: 113px;
     overflow: hidden;
 }
-
-
 
 .m-list-1 p {
     text-align: center;

@@ -25,7 +25,7 @@
             });
             // 登录后（请求用户信息） 显示用户信息
             this.nav.on('loggedin', function (user) {
-                if(!this.profile){
+                if (!this.profile) {
                     this.initProfile();
                 }
                 this.profile.renderProfile(user);

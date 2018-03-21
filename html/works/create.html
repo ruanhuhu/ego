@@ -10,131 +10,131 @@
     <link href="../../page/works/create.css" rel="stylesheet"/>
 </head>
 <body>
-<!-- 顶栏 -->
-<div class="g-header"></div>
+    <!-- 顶栏 -->
+    <div class="g-header"></div>
 
-<!-- 主栏 -->
-<div class="g-body">
-    <form id="uploadform">
-        <fieldset class="g-main">
-            <!-- 作品分类 -->
-            <div class="u-formitem toggle" id="category">
-                <label class="u-tt">作品分类</label>
-                <div class="u-cnt">
-                    <label>
-                        <input type="radio" name="category" checked value="0">
-                        <span class="u-btn">原 创</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="category" value="1">
-                        <span class="u-btn">临 摹</span>
-                    </label>
-                </div>
-            </div>
-            <!-- 划分线 -->
-            <div class="u-line"></div>
-            <!-- 上传图片 -->
-            <div id="m-uploadpics"></div>
-            <!-- 作品设置 -->
-            <div class="setting">
-                <!-- 作品名称 -->
-                <div class="u-formitem u-formitem-2">
-                    <label for="worksname" class="u-tt">作品名称</label>
-                    <span class="u-cnt">
-                        <input type="text" id="worksname" placeholder="给作品起个名吧" class="u-ipt">
-                        <input class="u-ipt-error" value="你的作品还没有去名字呢">
-                    </span>
-                </div>
-                <!-- 作品说明 -->
-                <div class="u-formitem u-formitem-2 u-formitem-3">
-                    <label for="description" class="u-tt">作品说明</label>
-                    <span class="u-cnt">
-                        <textarea id="description" placeholder="给作品加个描述吧" class="u-ipt"></textarea>
-                    </span>
-                </div>
-                <!-- 标签 -->
-                <div id="m-tags">
-<!--                    <div class="u-formitem  u-formitem-2 u-formitem-4">
-                        <label class="u-tt">标签</label>
-                        <div class="u-cnt" id="tags">
-                            &lt;!&ndash;<ul class="m-tag">
-                                <li class="tag u-btn">
-                                    <button class="close">x</button>
-                                    <span>少女系</span>
-                                </li>
-                                <li class="tag u-btn tag-add">
-                                    <span type="text" class="u-ipt">
-                                    <span class="txt">+ 自定义标签</span>
-                                </li>
-                            </ul> &ndash;&gt;
-                        </div>
-                    </div>
-                    &lt;!&ndash; 推荐标签 &ndash;&gt;
-                    <div class="u-formitem u-formitem-2 u-formitem-5">
-                        <p class="u-tt">推荐标签</p>
-                        <div class="u-cnt" id="rcmdtags">
-                            &lt;!&ndash;<ul class="m-tag">
-                                <li class="tag u-btn u-btn-primary">
-                                    <span>+ 少女系</span>
-                                </li>
-                            </ul> &ndash;&gt;
-                        </div>
-                    </div>-->
-                </div>
-            </div>
-            <!-- 提交 -->
-            <div class="m-submit">
-                <button class="u-btn u-btn-primary" type="submit">创 建</button>
-            </div>
-        </fieldset>
-        <fieldset class="g-aside">
-            <div class="wrap">
-                <!-- 权限设置 -->
-                <div class="u-formitem u-formitem-6" id="privilege">
-                    <label for="" class="u-tt">权限设置</label>
-                    <div class="u-cnt u-radio u-radio-checked">
+    <!-- 主栏 -->
+    <div class="g-body">
+        <form id="uploadform">
+            <fieldset class="g-main">
+                <!-- 作品分类 -->
+                <div class="u-formitem toggle" id="category">
+                    <label class="u-tt">作品分类</label>
+                    <div class="u-cnt">
                         <label>
-                            <input type="radio" name="privilege" value="0" checked="">
-                            <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>所有人可见
+                            <input type="radio" name="category" checked value="0">
+                            <span class="u-btn">原 创</span>
                         </label>
                         <label>
-                            <input type="radio" name="privilege" value="1">
-                            <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>关注者／粉丝可见
-                        </label>
-                        <label>
-                            <input type="radio" name="privilege" value="2">
-                            <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>仅自己可见
+                            <input type="radio" name="category" value="1">
+                            <span class="u-btn">临 摹</span>
                         </label>
                     </div>
                 </div>
-                <!-- 作品授权 -->
-                <div class="u-formitem-6" id="authorization">
-                    <label for="" class="u-tt">作品授权</label>
-                    <div class="u-cnt"></div>
+                <!-- 划分线 -->
+                <div class="u-line"></div>
+                <!-- 上传图片 -->
+                <div id="m-uploadpics"></div>
+                <!-- 作品设置 -->
+                <div class="setting">
+                    <!-- 作品名称 -->
+                    <div class="u-formitem u-formitem-2">
+                        <label for="worksname" class="u-tt">作品名称</label>
+                        <span class="u-cnt">
+                            <input type="text" id="worksname" placeholder="给作品起个名吧" class="u-ipt">
+                            <input class="u-ipt-error" value="你的作品还没有去名字呢">
+                        </span>
+                    </div>
+                    <!-- 作品说明 -->
+                    <div class="u-formitem u-formitem-2 u-formitem-3">
+                        <label for="description" class="u-tt">作品说明</label>
+                        <span class="u-cnt">
+                            <textarea id="description" placeholder="给作品加个描述吧" class="u-ipt"></textarea>
+                        </span>
+                    </div>
+                    <!-- 标签 -->
+                    <div id="m-tags">
+                        <!-- <div class="u-formitem  u-formitem-2 u-formitem-4">
+                                                <label class="u-tt">标签</label>
+                                                <div class="u-cnt" id="tags">
+                                                    &lt;!&ndash;<ul class="m-tag">
+                                                        <li class="tag u-btn">
+                                                            <button class="close">x</button>
+                                                            <span>少女系</span>
+                                                        </li>
+                                                        <li class="tag u-btn tag-add">
+                                                            <span type="text" class="u-ipt">
+                                                            <span class="txt">+ 自定义标签</span>
+                                                        </li>
+                                                    </ul> &ndash;&gt;
+                                                </div>
+                                            </div>
+                                            &lt;!&ndash; 推荐标签 &ndash;&gt;
+                                            <div class="u-formitem u-formitem-2 u-formitem-5">
+                                                <p class="u-tt">推荐标签</p>
+                                                <div class="u-cnt" id="rcmdtags">
+                                                    &lt;!&ndash;<ul class="m-tag">
+                                                        <li class="tag u-btn u-btn-primary">
+                                                            <span>+ 少女系</span>
+                                                        </li>
+                                                    </ul> &ndash;&gt;
+                                                </div>
+                                            </div>-->
+                    </div>
                 </div>
-            </div>
-        </fieldset>
-    </form>
-</div>
-<!-- 基础配置 -->
-<script src="../../common/config.js"></script>
-<!-- 工具函数 -->
-<script src="../../common/js/util.js"></script>
-<!-- 事件管理 -->
-<script src="../../common/js/emitter.js"></script>
-<!-- 数据验证 -->
-<script src="../../common/js/validator.js"></script>
-<!-- md5加密 -->
-<script src="../../lib/md5.js"></script>
-<!-- 省市区代码 -->
-<script src="../../lib/address_codes.js"></script>
-<!-- 模版引擎 -->
-<script src="../../lib/handlebars-v4.0.11.js"></script>
-<!-- 引入组件 -->
-<script src="../../component/base_component.js"></script>
-<script src="../../component/create_component.js"></script>
-<!-- 引入页面逻辑 -->
-<script src="../../page/works/create.js"></script>
+                <!-- 提交 -->
+                <div class="m-submit">
+                    <button class="u-btn u-btn-primary" type="submit">创 建</button>
+                </div>
+            </fieldset>
+            <fieldset class="g-aside">
+                <div class="wrap">
+                    <!-- 权限设置 -->
+                    <div class="u-formitem u-formitem-6" id="privilege">
+                        <label for="" class="u-tt">权限设置</label>
+                        <div class="u-cnt u-radio u-radio-checked">
+                            <label>
+                                <input type="radio" name="privilege" value="0" checked="">
+                                <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>所有人可见
+                            </label>
+                            <label>
+                                <input type="radio" name="privilege" value="1">
+                                <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>关注者／粉丝可见
+                            </label>
+                            <label>
+                                <input type="radio" name="privilege" value="2">
+                                <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiochecked"></i>仅自己可见
+                            </label>
+                        </div>
+                    </div>
+                    <!-- 作品授权 -->
+                    <div class="u-formitem-6" id="authorization">
+                        <label for="" class="u-tt">作品授权</label>
+                        <div class="u-cnt"></div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <!-- 基础配置 -->
+    <script src="../../common/config.js"></script>
+    <!-- 工具函数 -->
+    <script src="../../common/js/util.js"></script>
+    <!-- 事件管理 -->
+    <script src="../../common/js/emitter.js"></script>
+    <!-- 数据验证 -->
+    <script src="../../common/js/validator.js"></script>
+    <!-- md5加密 -->
+    <script src="../../lib/md5.js"></script>
+    <!-- 省市区代码 -->
+    <script src="../../lib/address_codes.js"></script>
+    <!-- 模版引擎 -->
+    <script src="../../lib/handlebars-v4.0.11.js"></script>
+    <!-- 引入组件 -->
+    <script src="../../component/base_component.js"></script>
+    <script src="../../component/create_component.js"></script>
+    <!-- 引入页面逻辑 -->
+    <script src="../../page/works/create.js"></script>
 
 </body>
 </html>
