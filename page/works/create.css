@@ -105,17 +105,17 @@
     position: relative;
 }
 
-.u-ipt-error {
+.u-name-error {
     position: absolute;
     right: -172px;
     width: 145px;
     line-height: 36px;
-    border-style: none;
     color: #e83828;
+    font-size: 12px;
     opacity: 0;
 }
 
-.u-ipt-error.show-error {
+.u-name-error.show-error {
     opacity: 1;
 }
 
