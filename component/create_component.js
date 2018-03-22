@@ -67,7 +67,7 @@ if (!window.App || typeof window.App !== 'object') {
         clickHandler: function (event) {
             var target = event.target;
             if (target.parentNode === this.nOption) {
-                this.setSelect(target.dataset.index);
+                this.setSelect(parseInt(target.dataset.index));
             } else if (target.parentNode === this.nHead || target === this.nHead) {
                 this.toggle();
             } else {
@@ -477,7 +477,7 @@ if (!window.App || typeof window.App !== 'object') {
     };
     // 点击 设置封面
     UploadPics.prototype.setCover = function (target) {
-        var picId = target.parentNode.dataset.id;
+        var picId = parseInt(target.parentNode.dataset.id);
         var picUrl = target.parentNode.dataset.url;
 
         if (typeof MOCK === 'boolean' && !MOCK) {
@@ -498,9 +498,9 @@ if (!window.App || typeof window.App !== 'object') {
     };
     // 点击 删除图片
     UploadPics.prototype.deletePicture = function (target) {
-        var picId = target.parentNode.dataset.id;
+        var picId = parseInt(target.parentNode.dataset.id);
         for (var i = 0; i < this.pictures.length; i++) {
-            if (this.pictures[i].id === parseInt(picId)) {
+            if (this.pictures[i].id === picId) {
                 //从 this.pictures 数组中将该图删除
                 this.pictures.splice(i, 1);
                 // 删除图元素
