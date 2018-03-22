@@ -406,12 +406,76 @@ if (!window.App || typeof window.App !== 'object') {
         var okFiles = [];
         var maxSize = 3 * 1024 * 1024;
 
+        var tipsContent = [],
+            msg = '',
+            sizeExceedMsg = '',
+            typeExceedMsg = '';
+
         var tipModal = new App.Modal({
             HEAD: true,
             FOOT: true,
             CANCEL: false,
             CHECK: false
         });
+
+        // 非Promise实现过滤文件的阻塞处理
+        var afterFilterFiles = function () {
+            // 若有提示内容 则显示完提示弹窗再判断是否上传
+            if (tipsContent.length > 0) {
+                var j = 0;
+
+                tipModal.show(tipsContent[j]);
+                tipModal.on('closeModal', function () {
+                    // 显示下一个提示内容
+                    j++;
+                    if (j < tipsContent.length) {           // 未提示完毕
+                        tipModal.show(tipsContent[j]);
+                    } else if (okFiles.length > 0) {        // 提示完毕，判断是否需要上传
+                        // 阻塞上传
+                        this.uploadFiles(okFiles);
+                        // 并发上传
+                        // this._upload(okFiles);
+                    }
+                }.bind(this));
+            } else if (okFiles.length > 0) {    // 没有提示内容， 直接判断是否需要上传
+                // 阻塞上传
+                this.uploadFiles(okFiles);
+                // 并发上传
+                // this._upload(okFiles);
+            }
+        };
+
+        // Promise实现过滤文件的阻塞处理
+        var _afterFilterFiles = function () {
+            // 显示错误信息弹窗（非图片类型、大于1M）后，上传合格的图片
+            new Promise(function (resolve) {
+                if (typeExceedMsg !== '') {
+                    tipModal.show(typeExceedMsg);
+                    tipModal.on('closeModal', resolve);
+                } else {
+                    resolve();
+                }
+            })
+                .then(function () {
+                    if (sizeExceedMsg !== '') {
+                        return new Promise(function (resolve) {
+                            tipModal.show(sizeExceedMsg);
+                            tipModal.on('closeModal', resolve);
+                        });
+                    }
+                })
+                .then(function () {
+                    if (okFiles.length > 0) {
+                        // 阻塞上传
+                        this.uploadFiles(okFiles);
+                        // 并发上传
+                        // this._upload(okFiles);
+                    }
+                }.bind(this))
+                .catch(function (error) {
+                    console.log('checkFiles提示弹窗发生错误！', error);
+                });
+        };
 
         //超过10张不再上传
         if (files.length > 10) {
@@ -432,43 +496,35 @@ if (!window.App || typeof window.App !== 'object') {
             }
         });
 
-        // 显示错误信息弹窗（非图片类型、大于1M）后，上传合格的图片
-        new Promise(function (resolve) {
-            if (typeExceedFiles.length > 0) {
-                var msg;
-                if (typeExceedFiles.length === 1) {
-                    msg = '<p class="modalmsg">文件 <em class="del-item-name">"' + typeExceedFiles[0].name + '"</em> 非图片类型，无法上传</p>';
-                } else {
-                    msg = '<p class="modalmsg"><em class="del-item-name">"' + typeExceedFiles[0].name + '"</em> 等 ' + sizeExceedFiles.length + ' 文件非图片类型，无法上传</p>';
-                }
-                tipModal.show(msg);
-                tipModal.on('closeModal', resolve);
+        // 类型错误提示内容
+        if (typeExceedFiles.length > 0) {
+            if (typeExceedFiles.length === 1) {
+                msg = '<p class="modalmsg">文件 <em class="del-item-name">"' + typeExceedFiles[0].name + '"</em> 非图片类型，无法上传</p>';
             } else {
-                resolve();
+                msg = '<p class="modalmsg"><em class="del-item-name">"' + typeExceedFiles[0].name + '"</em> 等 ' + sizeExceedFiles.length + ' 文件非图片类型，无法上传</p>';
             }
-        }).then(function () {
-            if (sizeExceedFiles.length > 0) {
-                return new Promise(function (resolve) {
-                    var msg;
-                    if (sizeExceedFiles.length === 1) {
-                        msg = '<p class="modalmsg">图片 <em class="del-item-name">"' + sizeExceedFiles[0].name + '"</em> 超过 1M，无法上传</p>';
-                    } else {
-                        msg = '<p class="modalmsg"><em class="del-item-name">"' + sizeExceedFiles[0].name + '"</em> 等 ' + sizeExceedFiles.length + ' 张图片超过 1M，无法上传</p>';
-                    }
-                    tipModal.show(msg);
-                    tipModal.on('closeModal', resolve);
-                });
+            tipsContent.push(msg);
+            typeExceedMsg = msg;
+        }
+
+        // 大小超出提示内容
+        if (sizeExceedFiles.length > 0) {
+            if (sizeExceedFiles.length === 1) {
+                msg = '<p class="modalmsg">图片 <em class="del-item-name">"' + sizeExceedFiles[0].name + '"</em> 超过 1M，无法上传</p>';
+            } else {
+                msg = '<p class="modalmsg"><em class="del-item-name">"' + sizeExceedFiles[0].name + '"</em> 等 ' + sizeExceedFiles.length + ' 张图片超过 1M，无法上传</p>';
             }
-        }).then(function () {
-            if (okFiles.length > 0) {
-                // 阻塞上传
-                this.uploadFiles(okFiles);
-                // 并发上传
-                // this._upload(okFiles);
-            }
-        }.bind(this)).catch(function (error) {
-            console.log('checkFiles提示弹窗发生错误！', error);
-        });
+            tipsContent.push(msg);
+            sizeExceedMsg = msg;
+        }
+
+        if (typeof Promise === 'undefined') {
+            // 非Promise实现过滤文件的阻塞处理
+            afterFilterFiles.bind(this)();
+        } else {
+            // Promise实现过滤文件的阻塞处理
+            _afterFilterFiles.bind(this)();
+        }
 
     };
 
