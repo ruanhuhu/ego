@@ -87,7 +87,7 @@ if (!window.App || typeof window.App !== 'object') {
             _.addClass(this.nOption, 'f-dn');
         },
 
-        toggle: function (event) {
+        toggle: function () {
             _.hasClass(this.nOption, 'f-dn') ? this.open() : this.close();
         },
 
@@ -183,9 +183,16 @@ if (!window.App || typeof window.App !== 'object') {
 
             var add = function (tag) {
                 //判断标签是否已存在
-                if (this.list.includes(tag)) {
-                    return;
+                // if (this.list.includes(tag)) {
+                //     return;
+                // }
+                // 兼容ie
+                for (var i = 0; i < this.list.length; i++) {
+                    if (this.list[i] === tag) {
+                        return;
+                    }
                 }
+
                 var nTag;
                 var html = '<li class="tag u-btn">\
                     <button class="close">x</button>\
@@ -249,7 +256,7 @@ if (!window.App || typeof window.App !== 'object') {
             this.nRecommendTags.addEventListener('click', rcmdTagsClickHandler);
 
             // tag 输入框失焦事件
-            var addTagInputBlurHandler = function (e) {
+            var addTagInputBlurHandler = function () {
                 // 清空输入框的值
                 this.nAddTagInput.value = '';
                 // 隐藏输入框，显示文本
@@ -305,9 +312,9 @@ if (!window.App || typeof window.App !== 'object') {
             var context = {
                 'tags': tagsArr
             };
-            var html = template(context);
-            this.nRecommendTags.innerHTML = html;
-        },
+
+            this.nRecommendTags.innerHTML = template(context);
+        }
     });
 
     App.Tags = Tags;
@@ -510,7 +517,7 @@ if (!window.App || typeof window.App !== 'object') {
         }
     };
 
-    // 并发上传合格图片
+    // 并发上传合格图片 Promise实现
     UploadPics.prototype._upload = function (files) {
         var totalSize = 0,  // 上传文件总大小
             loadedSize = [], // 各个文件已上传大小
@@ -687,7 +694,7 @@ if (!window.App || typeof window.App !== 'object') {
 
     };
 
-    // 阻塞上传合格图片
+    // 阻塞上传合格图片 非Promise实现
     UploadPics.prototype.uploadFiles = function (files) {
         var totalSize = 0,  // 上传文件总大小
             loadedSize = 0, // 已上传总大小
