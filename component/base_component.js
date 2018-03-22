@@ -41,8 +41,10 @@ if (!window.App || typeof window.App !== 'object') {
         //缓存节点
         this.layout = _.html2node(template(this));
         this.nTab = this.layout.getElementsByTagName('ul')[0];
-        this.nTabs = this.nTab.children;
-        this.tabs = this.nTab.getElementsByTagName('a');
+        // 兼容 ie edge , 将 live HTMLCollection 转化为数组类型(issue4)
+        // ES6实现：Array.from(array-like)
+        this.nTabs = Array.prototype.slice.call(this.nTab.children, 0);
+        this.tabs = Array.prototype.slice.call(this.nTab.getElementsByTagName('a'), 0);
         this.track = this.layout.querySelector('.tabs-track');
         this.nThumb = this.track.querySelector('.tabs-thumb');
 

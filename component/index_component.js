@@ -63,8 +63,8 @@ if (!window.App || typeof window.App !== 'object') {
             this.slider.appendChild(slides);
 
             // return slides.children;
-            // 兼容IE EDGE, live HTMLCollection在后续append操作后会改变， 导致无法访问
-            // 将slides.children转换成数组类型, ES6实现：Array.from(array-like)
+            // 兼容 ie edge , 将 live HTMLCollection 转化为数组类型(issue4)
+            // ES6实现：Array.from(array-like)
             return Array.prototype.slice.call(slides.children, 0);
 
         },
@@ -91,8 +91,8 @@ if (!window.App || typeof window.App !== 'object') {
             }.bind(this));
 
             // return cursor.children;
-            // 兼容IE EDGE, live HTMLCollection在后续append操作后会改变， 导致无法访问
-            // 将cursor.children转换成数组类型, ES6实现：Array.from(array-like)
+            // 兼容 ie edge , 将 live HTMLCollection 转化为数组类型(issue4)
+            // ES6实现：Array.from(array-like)
             return Array.prototype.slice.call(cursor.children, 0);
         },
 
