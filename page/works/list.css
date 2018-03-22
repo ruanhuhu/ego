@@ -7,8 +7,7 @@
 
 .g-body {
     width: 750px;
-    margin: 0 auto;
-    margin-bottom: 48px;
+    margin: 0 auto 48px;
     background: #fff;
     -webkit-box-shadow: 3px 3px 7px rgb(185, 185, 185);
     box-shadow: 3px 3px 7px rgb(185, 185, 185);
@@ -22,10 +21,10 @@
 }
 
 .m-aside {
-    width: 100px;
-    height: 288px;
     position: absolute;
     left: -100px;
+    width: 100px;
+    height: 288px;
     background: rgba(255, 255, 255, 0.8);
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
@@ -64,18 +63,18 @@
 
 .m-aside .dot:after {
     position: absolute;
-    content: ' ';
-    width: 8px;
-    height: 8px;
-    border-radius: 8px;
     top: 5px;
     right: 8px;
+    width: 8px;
+    height: 8px;
+    content: ' ';
+    border-radius: 8px;
     background-color: #e55f48;
 }
 
 .g-main {
-    height: 726px;
     position: relative;
+    height: 726px;
 }
 
 .g-profile .u-avatar {
@@ -85,16 +84,16 @@
 }
 
 .g-profile .u-info {
-    text-align: center;
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .g-profile .u-name {
-    max-width: 125px;
-    font-size: 20px;
     display: inline-block;
-    font-weight: bolder;
+    max-width: 125px;
     margin-right: 8px;
+    font-size: 20px;
+    font-weight: bolder;
     vertical-align: middle;
 }
 
@@ -106,13 +105,13 @@
 }
 
 .g-wrap .title {
+    display: inline-block;
+    height: 36px;
     margin-top: 18px;
     margin-bottom: 28px;
-    display: inline-block;
+    line-height: 36px;
     font-size: 14px;
     font-weight: bold;
-    height: 36px;
-    line-height: 36px;
     color: #231815;
     white-space: pre;
 }
@@ -140,8 +139,8 @@
 
 /*分页组件*/
 #pagination {
-    width: 100%;
     position: absolute;
+    width: 100%;
     bottom: 25px;
     height: 33px;
     text-align: center;
@@ -153,8 +152,8 @@
 
 .m-pagination li {
     float: left;
-    padding: 0 14px;
     height: 33px;
+    padding: 0 14px;
     line-height: 33px;
     text-align: center;
     cursor: pointer;
@@ -184,19 +183,19 @@
 }
 
 .m-works.addloading {
-    background: url(../../res/images/loading.gif) no-repeat;
     min-height: 32px;
+    background: url(../../res/images/loading.gif) no-repeat;
 }
 
 .m-works .item {
+    box-sizing: border-box;
     position: relative;
     width: 104px;
     height: 160px;
-    box-sizing: border-box;
-    border: 1px solid #d4d4d4;
-    background-color: #fff;
     margin-right: 29px;
     margin-bottom: 23px;
+    border: 1px solid #d4d4d4;
+    background-color: #fff;
 }
 
 .m-works .item a {
@@ -222,14 +221,15 @@
     left: -6px;
     bottom: -6px;
     height: 31px;
+    z-index: 1;
     line-height: 31px;
     background-color: rgba(255, 255, 255, .8);
     text-align: center;
     color: #727171;
-    z-index: 1;
 }
 
 .m-works .item img {
+    box-sizing: border-box;
     position: absolute;
     top: 5px;
     right: 5px;
@@ -237,7 +237,6 @@
     left: -7px;
     width: 104px;
     height: 160px;
-    box-sizing: border-box;
     border: 1px solid #d7d7d7;
     border-top: none;
     border-right: none;

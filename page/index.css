@@ -1,7 +1,7 @@
 
 .g-banner {
-    height: 356px;
     position: relative;
+    height: 356px;
     min-width: 1080px;
 }
 
@@ -11,8 +11,8 @@
 }
 
 .g-main {
-    width: 760px;
     float: left;
+    width: 760px;
 }
 
 .g-main .m-section {
@@ -20,18 +20,18 @@
 }
 
 .g-side {
-    width: 295px;
     float: right;
+    width: 295px;
 }
 
 .g-footer {
     box-sizing: border-box;
     width: 1080px;
     height: 84px;
+    margin: 0 auto 96px auto;
     line-height: 82px;
     font-size: 14px;
     text-align: center;
-    margin: 0 auto 96px auto;
 }
 
 .g-footer .m-link {
@@ -52,10 +52,10 @@
 .m-section {
     box-sizing: border-box;
     width: 100%;
-    border: 1px solid #e2e3e3;
     margin-bottom: 30px;
-    background: #fff;
     overflow: hidden;
+    background: #fff;
+    border: 1px solid #e2e3e3;
 }
 
 .m-recommend,
@@ -82,12 +82,12 @@
 }
 
 .m-section .section-head {
-    font-size: 14px;
     position: relative;
     height: 70px;
-    line-height: 70px;
-    border-bottom: 1px solid #e2e3e3;
     padding: 0 28px 0 80px;
+    line-height: 70px;
+    font-size: 14px;
+    border-bottom: 1px solid #e2e3e3;
 }
 
 .m-section .section-more {
@@ -105,15 +105,15 @@
 }
 
 .m-list {
+    overflow: hidden;
     padding: 12px 0 12px 15px;
     margin-left: -12px;
-    overflow: hidden;
 }
 
 .m-list > li {
     float: left;
-    overflow: hidden;
     margin-left: 12px;
+    overflow: hidden;
 }
 
 .m-list a > img {
@@ -143,11 +143,11 @@
 }
 
 .m-list-1 p {
-    text-align: center;
     height: 16px;
     padding-top: 6px;
     max-width: 100%;
     overflow: hidden;
+    text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -163,8 +163,8 @@
 
 .m-list-2 .act-one,
 .m-list-2 .act-two {
-    position: relative;
     float: left;
+    position: relative;
     width: 567px;
 }
 
@@ -192,8 +192,8 @@
     top: 0;
     left: 0;
     padding-left: 17px;
-    color: #fff;
     line-height: 49px;
+    color: #fff;
 }
 
 .m-list-2 .u-title > a {
@@ -241,9 +241,9 @@
     right: -1px;
     box-sizing: border-box;
     height: 49px;
-    background: #32465b;
     padding-left: 14px;
     border: 1px solid #b3bbc3;
+    background: #32465b;
 }
 
 .m-list-2 .act-btn {
@@ -261,10 +261,10 @@
 }
 
 .m-list-2 .act-info .rule {
-    margin: 14px 76px 14px 18px;
-    line-height: 12px;
     height: 72px;
+    margin: 14px 76px 14px 18px;
     overflow: hidden;
+    line-height: 12px;
     text-align: justify;
 }
 
@@ -290,17 +290,17 @@
     float: left;
     width: 69px;
     height: 69px;
-    border-radius: 50%;
     margin-left: 22px;
+    border-radius: 50%;
     vertical-align: middle;
 }
 
 .m-card .card-info {
     float: left;
     width: 150px;
-    line-height: 22px;
     padding-left: 22px;
     padding-top: 8px;
+    line-height: 22px;
     color: #727171;
     white-space: nowrap;
 }
@@ -313,21 +313,21 @@
 }
 
 .u-btn.z-follow:hover:after {
-    content: "取消关注";
-    color: #fff;
-    background: #5ed0ba;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
+    content: "取消关注";
+    color: #fff;
+    background: #5ed0ba;
 }
 
 .g-side .m-section .section-head {
+    padding: 0;
+    background: #5ed0ba;
     text-align: center;
     color: #fff;
-    padding: 0px;
-    background: #5ed0ba;
 }
 
 .g-side .m-mywork .section-head {
@@ -338,11 +338,11 @@
 .m-mywork .section-more,
 .m-groups .section-more,
 .m-hottopic .section-more {
-    text-align: center;
-    width: 100%;
-    display: inline-block;
     float: none;
+    display: inline-block;
+    width: 100%;
     padding-top: 0;
+    text-align: center;
 }
 
 .m-mywork .section-more {
@@ -372,15 +372,15 @@
 }
 
 .m-mywork .m-list > li {
-    margin-top: 12px;
     width: 269px;
     height: 268px;
+    margin-top: 12px;
 }
 
 .g-side .m-groups {
     height: 410px;
-    border-bottom: none;
     margin-bottom: 0;
+    border-bottom: none;
 }
 
 .g-side .m-groups .section-head {
@@ -389,9 +389,9 @@
 }
 
 .m-groups .section-head span {
+    float: left;
     display: inline-block;
     width: 50%;
-    float: left;
     color: #727171;
     cursor: pointer;
 }
@@ -404,9 +404,9 @@
 .m-groups .m-card .card-avatar {
     width: 87px;
     height: 87px;
-    border-radius: 0;
     margin-left: 11px;
     margin-right: 14px;
+    border-radius: 0;
 }
 
 .m-groups .m-card .card-info {
@@ -425,16 +425,16 @@
 
 .m-groups .m-list > li {
     height: 87px;
+    width: 100%;
     margin-top: 11px;
     margin-left: 0;
-    width: 100%;
 }
 
 .m-hottopic .m-list > li {
     box-sizing: border-box;
+    height: 54px;
     padding: 11px 27px;
     margin-right: 12px;
-    height: 54px;
     line-height: 17px;
 }
 
@@ -458,31 +458,31 @@
 
 .g-side .m-toplist .section-head {
     height: 65px;
+    margin-bottom: 6px;
     background: #fff;
     border-bottom: none;
-    margin-bottom: 6px;
 }
 
 .m-toplist .section-head .title {
     float: left;
     width: 100px;
     height: 100%;
-    line-height: 65px;
     margin-right: 10px;
+    line-height: 65px;
     background: #5ed0ba;
 }
 
 .m-toplist #sidetabs {
     box-sizing: border-box;
     height: 59px;
+    margin-top: 0;
     background: #fff;
-    margin-top: 0px;
 }
 
 .m-toplist #sidetabs a {
     height: 65px;
-    line-height: 65px;
     padding: 0 13px;
+    line-height: 65px;
 }
 
 .m-toplist #sidetabs a:hover {
@@ -495,10 +495,10 @@
 }
 
 .m-toplist .m-card .card-avatar {
-    border-radius: 0;
     width: 136px;
     height: 113px;
     margin-left: 5px;
+    border-radius: 0;
 }
 
 .m-toplist .m-card .card-info {
@@ -508,10 +508,10 @@
 }
 
 .m-toplist .card-info .u-name {
-    font-size: 12px;
-    color: #727171;
-    font-weight: normal;
     margin-bottom: 17px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #727171;
 }
 
 .m-toplist .section-more,
