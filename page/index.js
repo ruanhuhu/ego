@@ -317,8 +317,13 @@
             // Nav->Guest 点击"注册"，初始化注册弹窗
             this.nav.on('toRegister', this.initRegisterModal.bind(this));
             // Nav 初始化获取用户信息成功后触发 loggedin，初始化登录后明日之星的内容
+            // 登录弹窗loggedin监听事件中触发nav的loggedin，刷新明日之星的内容
             this.nav.on('loggedin', function () {
-                this.initStarList();
+                if (this.starList) {
+                    this.starList.getStarlist();
+                } else {
+                    this.initStarList();
+                }
             }.bind(this));
             // Nav 状态初始化获取登录用户信息失败后触发notLoggedin，初始化未登录明日之星内容
             // 或 Nav->User 点击"退出"，触发notLoggedin，则刷新主页明日之星栏目的内容
@@ -380,7 +385,7 @@
                 // 传递给内部的guest和user组件，进一步显示/隐藏
                 this.nav.emit('loggedin', user);
                 // 刷新明日之星栏目
-                this.starList.getStarlist();
+                // this.starList.getStarlist();
             }.bind(this));
 
             // 关闭登录弹窗， 销毁登录弹窗对象

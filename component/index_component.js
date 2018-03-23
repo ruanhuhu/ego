@@ -973,7 +973,10 @@ if (!window.App || typeof window.App !== 'object') {
         },
         followHandler: function (event) {
             var target = event.target;
-            if (event.target.tagName === "BUTTON") {
+            // event.stopImmediatePropagation();
+
+            // span会冒泡到button
+            if (target.tagName === "BUTTON" || target.parentNode.tagName === "BUTTON") {
                 var user = window.App.user;
                 //未登录情况
                 if (user.username === undefined) {
