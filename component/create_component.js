@@ -18,10 +18,10 @@ if (!window.App || typeof window.App !== 'object') {
         </div>';
 
     /* options 参数说明
-    * {
-    *	container: dom节点, 父容器（必填）
-    * }
-    */
+     * {
+     *  container: dom节点, 父容器（必填）
+     * }
+     */
     function Select(options) {
         _.extend(this, options);
 
@@ -148,10 +148,10 @@ if (!window.App || typeof window.App !== 'object') {
             </div>';
 
     /* options 参数说明
-    * {
-    *	parent: dom节点, 父容器（必填）
-    * }
-    */
+     * {
+     *  parent: dom节点, 父容器（必填）
+     * }
+     */
     function Tags(options) {
 
         _.extend(this, options);
@@ -161,7 +161,7 @@ if (!window.App || typeof window.App !== 'object') {
 
         // 缓存节点
         this.nTags = _.$('#tags', this.parent); // 标签列表
-        this.nRecommendTags = _.$('#rcmdtags', this.parent);    // 推荐标签列表
+        this.nRecommendTags = _.$('#rcmdtags', this.parent); // 推荐标签列表
         this.nAddTag = _.$('li.tag-add', this.nTags); // 自定义标签按钮
         this.nAddTagInput = _.$('input.u-ipt', this.nAddTag); // 自定义标签按钮中输入框
         // tag数组
@@ -237,9 +237,9 @@ if (!window.App || typeof window.App !== 'object') {
             var tagsClickHandler = function (e) {
                 var target = e.target;
                 var nTag = target.parentNode;
-                if (_.hasClass(nTag, 'tag') && !_.hasClass(nTag, 'tag-add')) {  // 点击标签按钮 删除标签
+                if (_.hasClass(nTag, 'tag') && !_.hasClass(nTag, 'tag-add')) { // 点击标签按钮 删除标签
                     this.remove(nTag);
-                } else if (_.hasClass(nTag, 'tag-add')) {   // 点击自定义标签按钮
+                } else if (_.hasClass(nTag, 'tag-add')) { // 点击自定义标签按钮
                     // 显示输入框, 隐藏文本
                     _.addClass(nTag, 'focused');
                     // 输入框获取焦点
@@ -348,10 +348,10 @@ if (!window.App || typeof window.App !== 'object') {
             </div>';
 
     /* options 参数说明
-    * {
-    *	container: dom节点, 父容器（必填）
-    * }
-    */
+     * {
+     *  container: dom节点, 父容器（必填）
+     * }
+     */
     function UploadPics(options) {
         // 继承配置
         _.extend(this, options);
@@ -366,13 +366,13 @@ if (!window.App || typeof window.App !== 'object') {
 
         this.pictures = [];
 
-        this.picsContainer = _.$('.uploadWorklist', this.container);    // 上传图片列表容器
-        this.picsList = _.$('.m-works', this.picsContainer);    // 图片列表ul容器
-        this.uploadInput = _.$('#upload', this.container);    // 上传文件input按钮(隐藏)
-        this.uploadButton = _.$('.u-btn-upload', this.container);    // 上传样式化按钮
-        this.progressBar = _.$('#progress', this.container);        // 上传进度条
-        this.progressInfo = _.$('#progressInfo', this.container);    // 上传进度信息
-        this.progressContainer = this.progressBar.parentNode;   // 进度容器
+        this.picsContainer = _.$('.uploadWorklist', this.container); // 上传图片列表容器
+        this.picsList = _.$('.m-works', this.picsContainer); // 图片列表ul容器
+        this.uploadInput = _.$('#upload', this.container); // 上传文件input按钮(隐藏)
+        this.uploadButton = _.$('.u-btn-upload', this.container); // 上传样式化按钮
+        this.progressBar = _.$('#progress', this.container); // 上传进度条
+        this.progressInfo = _.$('#progressInfo', this.container); // 上传进度信息
+        this.progressContainer = this.progressBar.parentNode; // 进度容器
 
 
         // 文件类型input 上传图片
@@ -432,16 +432,16 @@ if (!window.App || typeof window.App !== 'object') {
                 tipModal.on('closeModal', function () {
                     // 显示下一个提示内容
                     j++;
-                    if (j < tipsContent.length) {           // 未提示完毕
+                    if (j < tipsContent.length) { // 未提示完毕
                         tipModal.show(tipsContent[j]);
-                    } else if (okFiles.length > 0) {        // 提示完毕，判断是否需要上传
+                    } else if (okFiles.length > 0) { // 提示完毕，判断是否需要上传
                         // 阻塞上传
                         this.uploadFiles(okFiles);
                         // 并发上传
                         // this._upload(okFiles);
                     }
                 }.bind(this));
-            } else if (okFiles.length > 0) {    // 没有提示内容， 直接判断是否需要上传
+            } else if (okFiles.length > 0) { // 没有提示内容， 直接判断是否需要上传
                 // 阻塞上传
                 this.uploadFiles(okFiles);
                 // 并发上传
@@ -582,15 +582,15 @@ if (!window.App || typeof window.App !== 'object') {
 
     // 并发上传合格图片 Promise实现
     UploadPics.prototype._upload = function (files) {
-        var totalSize = 0,  // 上传文件总大小
+        var totalSize = 0, // 上传文件总大小
             loadedSize = [], // 各个文件已上传大小
-            filesNum = files.length,    // 上传文件总数量
+            filesNum = files.length, // 上传文件总数量
             uploadedFilesNum = 0, // 已上传文件数量
             uploadProgress = 0; // 上传进度
         var self = this;
 
-        var uploadRequests = [],    // 并发上传请求
-            failUploadFiles = [];   // 上传失败文件名
+        var uploadRequests = [], // 并发上传请求
+            failUploadFiles = []; // 上传失败文件名
 
         //禁用 上传按钮
         this.uploadInput.disabled = true;
@@ -678,58 +678,57 @@ if (!window.App || typeof window.App !== 'object') {
 
             uploadRequests.push(new Promise(function (resolve, reject) {
 
-                    var fd = new FormData();
-                    fd.append('file', item, item.name);
+                var fd = new FormData();
+                fd.append('file', item, item.name);
 
-                    var xhr = new XMLHttpRequest();
-                    xhr.withCredentials = true;
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4) {
-                            if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-                                resolve({
-                                    picture: JSON.parse(xhr.responseText).result,
-                                    file: item
-                                });
-                            } else {
-                                reject({
-                                    error: xhr.responseText,
-                                    file: item
-                                });
-                            }
+                var xhr = new XMLHttpRequest();
+                xhr.withCredentials = true;
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                            resolve({
+                                picture: JSON.parse(xhr.responseText).result,
+                                file: item
+                            });
+                        } else {
+                            reject({
+                                error: xhr.responseText,
+                                file: item
+                            });
                         }
-                    };
-
-                    if ("upload" in new XMLHttpRequest) {
-                        xhr.upload.onprogress = progressHandler.bind(self, index);
                     }
+                };
 
-                    // xhr.open(_.fixMethod('POST'), _.getApiUrl('/api/works?upload', 'POST'));
-                    xhr.open('POST', _.getApiUrl('/api/works?upload', 'POST'));
-                    xhr.send(fd);
+                if ("upload" in new XMLHttpRequest) {
+                    xhr.upload.onprogress = progressHandler.bind(self, index);
+                }
 
-                }).then(function (response) {
+                // xhr.open(_.fixMethod('POST'), _.getApiUrl('/api/works?upload', 'POST'));
+                xhr.open('POST', _.getApiUrl('/api/works?upload', 'POST'));
+                xhr.send(fd);
+
+            }).then(function (response) {
+                // 追加上传成功文件个数 更新进度条
+                uploadedFilesNum++;
+                self.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，成功上传 ' + uploadedFilesNum + ' 张，上传进度 ' + uploadProgress + '%';
+                // 本地添加文件显示
+                addImg(response.picture, response.file);
+            }).catch(function (errorinfo) {
+                // 上传失败
+                // console.log(errorinfo.error);
+                // console.log(errorinfo.file);
+                // 模拟上传成功
+                if (typeof MOCK !== 'undefined' && MOCK) {
                     // 追加上传成功文件个数 更新进度条
                     uploadedFilesNum++;
                     self.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，成功上传 ' + uploadedFilesNum + ' 张，上传进度 ' + uploadProgress + '%';
                     // 本地添加文件显示
-                    addImg(response.picture, response.file);
-                }).catch(function (errorinfo) {
-                    // 上传失败
-                    // console.log(errorinfo.error);
-                    // console.log(errorinfo.file);
-                    // 模拟上传成功
-                    if (typeof MOCK !== 'undefined' && MOCK) {
-                        // 追加上传成功文件个数 更新进度条
-                        uploadedFilesNum++;
-                        self.progressInfo.innerHTML = '共 ' + filesNum + ' 张图片，成功上传 ' + uploadedFilesNum + ' 张，上传进度 ' + uploadProgress + '%';
-                        // 本地添加文件显示
-                        addImg(MOCK_POST_WORKS_UPLOAD.result, errorinfo.file);
-                    } else {
-                        // 记录上传失败文件名称
-                        failUploadFiles.push(errorinfo.file.name);
-                    }
-                })
-            )
+                    addImg(MOCK_POST_WORKS_UPLOAD.result, errorinfo.file);
+                } else {
+                    // 记录上传失败文件名称
+                    failUploadFiles.push(errorinfo.file.name);
+                }
+            }))
         });
 
         Promise.all(uploadRequests).then(function () {
@@ -759,11 +758,11 @@ if (!window.App || typeof window.App !== 'object') {
 
     // 阻塞上传合格图片 非Promise实现
     UploadPics.prototype.uploadFiles = function (files) {
-        var totalSize = 0,  // 上传文件总大小
+        var totalSize = 0, // 上传文件总大小
             loadedSize = 0, // 已上传总大小
-            filesNum = files.length,    // 上传文件数量
+            filesNum = files.length, // 上传文件数量
             uploadingFileIndex = 0, // 当前上传文件索引
-            failUploadFiles = [];   // 上传失败文件数组
+            failUploadFiles = []; // 上传失败文件数组
         var self = this;
 
         //禁用 上传按钮
@@ -933,7 +932,7 @@ if (!window.App || typeof window.App !== 'object') {
                 for (key in item) {
                     picture[key] = item[key];
                 }
-                picture['position'] = index;    //图画在作品中的位置顺序
+                picture['position'] = index; //图画在作品中的位置顺序
                 return picture;
             })
         };

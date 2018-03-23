@@ -191,10 +191,10 @@ if (!window.App || typeof window.App !== 'object') {
 
 
     /* options 参数说明
-    * {
-    *	container: dom节点, 父容器（可选），默认document.body
-    * }
-    */
+     * {
+     *  container: dom节点, 父容器（可选），默认document.body
+     * }
+     */
     function LoginModal(options) {
 
         _.extend(this, options);
@@ -278,9 +278,9 @@ if (!window.App || typeof window.App !== 'object') {
                     method: _.fixMethod('POST'),
                     data: data,
                     success: function (data) {
-                        if (data.code == 200) {
+                        if (data.code === 200) {
                             this.hide();
-                            window.App.user = data.result
+                            window.App.user = data.result;
                             this.emit('loggedin', data.result);
                         } else {
                             //根据错误吗显示不同的错误信息
@@ -323,10 +323,10 @@ if (!window.App || typeof window.App !== 'object') {
         </div>';
 
     /* options 参数说明
-    * {
-    *	container: dom节点, 父容器（必填）
-    * }
-    */
+     * {
+     *  container: dom节点, 父容器（必填）
+     * }
+     */
     function Select(options) {
         _.extend(this, options);
 
@@ -360,6 +360,7 @@ if (!window.App || typeof window.App !== 'object') {
             for (var i = 0; i < data.length; i++) {
                 optionsHTML += '<li data-index=' + i + '>' + data[i].name + '</li>';
             }
+
             this.nOption.innerHTML = optionsHTML;
             this.nOptions = this.nOption.children;
             this.options = data;
@@ -438,11 +439,11 @@ if (!window.App || typeof window.App !== 'object') {
 (function (App) {
 
     /* options 参数说明
-   * {
-   *	container: dom节点, 父容器（必填）
-   *    data: [{name:,value:,list:}]
-   * }
-   */
+     * {
+     *  container: dom节点, 父容器（必填）
+     *    data: [{name:,value:,list:}]
+     * }
+     */
     function CascadeSelect(options) {
         // 继承配置
         _.extend(this, options);
@@ -483,12 +484,12 @@ if (!window.App || typeof window.App !== 'object') {
             }
             return selIndexArr;
         },
-        onChange: function (index, value) {
+        onChange: function (index) {
             var next = index + 1;
             if (next === this.selectList.length) return;
-            this.selectList[next].render(this.getList(next, value));
+            this.selectList[next].render(this.getList(next));
         },
-        getList: function (n, value) {
+        getList: function (n) {
             var temp_data = this.data;
             var selIndexArr = this.getSelIndex();
             for (var i = 0; i < n; i++) {
@@ -514,7 +515,6 @@ if (!window.App || typeof window.App !== 'object') {
  * emit: registered (closeModal 继承自通用 Modal)
  */
 (function (App) {
-    var validator = App.validator;
     var template = '<div>\
         <div class="u-regmdlogo"><img src="' + BASE_URL + '/res/images/logo.png" alt="logo"></div>\
         <form class="m-form m-form-2" id="registerform" autocomplete="off">\
@@ -579,10 +579,10 @@ if (!window.App || typeof window.App !== 'object') {
     </div>';
 
     /* options 参数说明
-    * {
-    *	container: dom节点, 父容器（可选），默认document.body
-    * }
-    */
+     * {
+     *  container: dom节点, 父容器（可选），默认document.body
+     * }
+     */
     function RegisterModal(options) {
         this.content = _.html2node(template);
         // App.Modal.call(this, {
@@ -646,7 +646,7 @@ if (!window.App || typeof window.App !== 'object') {
             this.addData = this.formatData(ADDRESS_CODES, []);
             this.locationSelect = new App.CascadeSelect({
                 container: this.nLocSelect,
-                data: this.addData,
+                data: this.addData
             });
         },
 
@@ -665,9 +665,9 @@ if (!window.App || typeof window.App !== 'object') {
                 this.days = 0;
                 this.selectList[0].render(this.YEAR);
                 this.selectList[1].render(this.MONTH);
-            }
+            };
 
-            BirthCS.prototype.onChange = function (index, value) {
+            BirthCS.prototype.onChange = function (index) {
                 if (index !== 2 && this.selectList[1].selectedIndex !== undefined) {
                     var valueArr = this.getValue();
                     var date = new Date(valueArr[0], valueArr[1], 0);
@@ -694,14 +694,14 @@ if (!window.App || typeof window.App !== 'object') {
                 var tmp, i;
 
                 for (i = CURRENT_YEAR; i >= CURRENT_YEAR - 100 + 1; i--) {
-                    tmp = new Object;
+                    tmp = {};
                     tmp.name = (i).toString();
                     tmp.value = i;
                     this.YEAR.push(tmp);
                 }
 
                 for (i = 1; i < 13; i++) {
-                    tmp = new Object;
+                    tmp = {};
                     tmp.name = (i).toString();
                     tmp.value = i;
                     this.MONTH.push(tmp);
@@ -712,7 +712,7 @@ if (!window.App || typeof window.App !== 'object') {
                 var tmp = [],
                     DAYS = [];
                 for (var i = 1; i <= days; i++) {
-                    tmp = new Object;
+                    tmp = {};
                     tmp.name = (i).toString();
                     tmp.value = i;
                     DAYS.push(tmp);
@@ -735,7 +735,7 @@ if (!window.App || typeof window.App !== 'object') {
         },
 
         check: function () {
-            var isValid = true,
+            var isValid,
                 errorMsg = "";
 
             var checkList = [
@@ -744,7 +744,7 @@ if (!window.App || typeof window.App !== 'object') {
                 [this.pwd, ['required', 'length']],
                 [this.confirmpwd, ['required', 'length']],
                 [this.captcha, ['required']]
-            ]
+            ];
 
             isValid = this.checkRules(checkList);
             if (!isValid) {
@@ -802,7 +802,7 @@ if (!window.App || typeof window.App !== 'object') {
                 //显示错误
                 this.showError(checkItem, !flag);
 
-                if (!flag && isValid == true) {
+                if (!flag && isValid === true) {
                     isValid = false;
                 }
             }
@@ -874,9 +874,10 @@ if (!window.App || typeof window.App !== 'object') {
 
         },
 
+        // container's id 生日和地址级联选择器互斥
         closeOther: function (id) {
             var otherNode = {};
-            if (id == 'birthday') {
+            if (id === 'birthday') {
                 otherNode = this.locationSelect;
             } else {
                 otherNode = this.birthdaySelect;
@@ -938,14 +939,14 @@ if (!window.App || typeof window.App !== 'object') {
             _.ajax({
                 url: _.getApiUrl(urlMock),
                 success: function (data) {
-                    if (data.code == 200) {
+                    if (data.code === 200) {
                         this.starsInfo = data.result;
                         this.render(data.result);
                     }
                 }.bind(this),
                 fail: function () {
                 }
-            })
+            });
         },
         render: function (data) {
             var html = "";
@@ -975,7 +976,6 @@ if (!window.App || typeof window.App !== 'object') {
             var target = event.target;
             // event.stopImmediatePropagation();
 
-            // span会冒泡到button
             if (target.tagName === "BUTTON" || target.parentNode.tagName === "BUTTON") {
                 var user = window.App.user;
                 //未登录情况
@@ -1016,7 +1016,7 @@ if (!window.App || typeof window.App !== 'object') {
                 method: _.fixMethod('POST'),
                 data: {id: followInfo.id},
                 success: function (data) {
-                    if (data.code == 200) {
+                    if (data.code === 200) {
                         followInfo.isFollow = true;
                         followInfo.followCount++;
                         var newNode = _.html2node(this.renderItem(followInfo));
@@ -1033,7 +1033,7 @@ if (!window.App || typeof window.App !== 'object') {
                 method: _.fixMethod('POST'),
                 data: {id: followInfo.id},
                 success: function (data) {
-                    if (data.code == 200) {
+                    if (data.code === 200) {
                         followInfo.isFollow = false;
                         followInfo.followCount--;
                         var newNode = _.html2node(this.renderItem(followInfo));

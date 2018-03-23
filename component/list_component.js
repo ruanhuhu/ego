@@ -304,8 +304,6 @@ if (!window.App || typeof window.App !== 'object') {
         <ul class="m-works" id="workslist"></ul>\
         </div>';
 
-    var DEFAULT_QUERY_LIMIT = 15;   // 请求条数
-
     /**
      * options 参数说明
      * {
@@ -408,7 +406,7 @@ if (!window.App || typeof window.App !== 'object') {
                         {{#if this.coverUrl}}\
                         <img src="{{this.coverUrl}}" alt="{{this.name}}">\
                         {{else}}\
-                        <img src="${BASE_URL}/res/images/default_cover.png" alt="作品默认封面">\
+                        <img src="' + BASE_URL + '/res/images/default_cover.png" alt="作品默认封面">\
                         {{/if}}\
                         <h3 class="f-thide">{{this.name}}</h3>\
                     </a>\
