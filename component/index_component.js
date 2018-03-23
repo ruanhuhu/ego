@@ -847,14 +847,26 @@ if (!window.App || typeof window.App !== 'object') {
         },
         //Array to Object{name: , value: }
         formatData: function (arr, data) {
-            if (arr == undefined || data == undefined) return;
+            if (arr == undefined || data == undefined) {
+                return;
+            }
             for (var i = 0; i < arr.length; i++) {
                 data[i] = {
                     name: arr[i][1],
                     value: arr[i][0],
                     children: []
                 };
-                if (arr[i][2] !== undefined) {
+                //  个别没有具体县，值为null
+                if (arr[i][2] === null) {
+                    data[i].children = [
+                        {
+                            name: '-',
+                            value: '',
+                            children: []
+                        }
+                    ];
+                    return data;
+                } else if (arr[i][2] !== undefined) {
                     this.formatData(arr[i][2], data[i].children);
                 }
             }
