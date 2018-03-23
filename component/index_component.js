@@ -84,8 +84,9 @@ if (!window.App || typeof window.App !== 'object') {
             this.slider.appendChild(cursor);
 
             cursor.addEventListener('click', function (event) {
-                index = event.target.dataset.index;
-                if (typeof index !== 'undefined') {
+                // index = event.target.dataset.index;
+                var index = _.getDataset(event.target, 'index');
+                if (typeof index !== 'undefined' && index !== null) {
                     this.nav(parseInt(index));
                 }
             }.bind(this));
@@ -371,7 +372,11 @@ if (!window.App || typeof window.App !== 'object') {
         clickHandler: function (event) {
             var target = event.target;
             if (target.parentNode === this.nOption) {
-                this.setSelect(parseInt(target.dataset.index));
+                // this.setSelect(parseInt(target.dataset.index));
+                var index = _.getDataset(target, 'index');
+                if (index !== undefined && index !== null) {
+                    this.setSelect(parseInt(index));
+                }
             } else if (target.parentNode === this.nHead || target === this.nHead) {
                 this.toggle();
             } else {
@@ -964,9 +969,16 @@ if (!window.App || typeof window.App !== 'object') {
                     return;
                 }
                 //已经登录的情况
-                var userId = parseInt(target.dataset.userid),
-                    dataArr = this.starsInfo,
+                // var userId = parseInt(target.dataset.userid),
+                var userId = _.getDataset(target, 'userid');
+                var dataArr = this.starsInfo,
                     data;
+
+                if (userId !== undefined && userId !== null) {
+                    userId = parseInt(userId);
+                } else {
+                    return;
+                }
 
                 // data = 点击的用户信息
                 for (var i = 0; i < dataArr.length; i++) {

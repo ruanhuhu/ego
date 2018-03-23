@@ -67,7 +67,11 @@ if (!window.App || typeof window.App !== 'object') {
         clickHandler: function (event) {
             var target = event.target;
             if (target.parentNode === this.nOption) {
-                this.setSelect(parseInt(target.dataset.index));
+                // this.setSelect(parseInt(target.dataset.index));
+                var index = _.getDataset(target, 'index');
+                if (index !== undefined && index !== null) {
+                    this.setSelect(parseInt(index));
+                }
             } else if (target.parentNode === this.nHead || target === this.nHead) {
                 this.toggle();
             } else {
@@ -540,8 +544,10 @@ if (!window.App || typeof window.App !== 'object') {
     };
     // 点击 设置封面
     UploadPics.prototype.setCover = function (target) {
-        var picId = parseInt(target.parentNode.dataset.id);
-        var picUrl = target.parentNode.dataset.url;
+        // var picId = parseInt(target.parentNode.dataset.id);
+        // var picUrl = target.parentNode.dataset.url;
+        var picId = parseInt(_.getDataset(target.parentNode, 'id'));
+        var picUrl = _.getDataset(target.parentNode, 'url');
 
         if (typeof MOCK === 'boolean' && !MOCK) {
             if (this.coverId === picId) {
@@ -561,7 +567,8 @@ if (!window.App || typeof window.App !== 'object') {
     };
     // 点击 删除图片
     UploadPics.prototype.deletePicture = function (target) {
-        var picId = parseInt(target.parentNode.dataset.id);
+        // var picId = parseInt(target.parentNode.dataset.id);
+        var picId = parseInt(_.getDataset(target.parentNode, 'id'));
         for (var i = 0; i < this.pictures.length; i++) {
             if (this.pictures[i].id === picId) {
                 //从 this.pictures 数组中将该图删除

@@ -194,10 +194,12 @@ if (!window.App || typeof window.App !== 'object') {
             var ul = _.createElement('ul', 'm-pagination');
             //第一页
             this.first = _.createElement('li', '', '第一页');
-            this.first.dataset.page = 1;
+            // this.first.dataset.page = 1;
+            _.setDataset(this.first, 'page', 1);
             //上一页
             this.prev = _.createElement('li', '', '上一页');
-            this.prev.dataset.page = this.current - 1;
+            // this.prev.dataset.page = this.current - 1;
+            _.setDataset(this.prev, 'page', this.current - 1);
             ul.appendChild(this.first);
             ul.appendChild(this.prev);
 
@@ -209,7 +211,8 @@ if (!window.App || typeof window.App !== 'object') {
                     num = this.startNum + i;
                 if (num <= this.pageNum) {
                     nNum.innerHTML = num;
-                    nNum.dataset.page = num;
+                    // nNum.dataset.page = num;
+                    _.setDataset(nNum, 'page', num);
                     this.nNums.push(nNum);
                     ul.appendChild(nNum);
                 }
@@ -217,10 +220,12 @@ if (!window.App || typeof window.App !== 'object') {
 
             //下一页
             this.next = _.createElement('li', '', '下一页');
-            this.next.dataset.page = this.current + 1;
+            // this.next.dataset.page = this.current + 1;
+            _.setDataset(this.next, 'page', this.current + 1);
             //尾页
             this.last = _.createElement('li', '', '尾页');
-            this.last.dataset.page = this.pageNum;
+            // this.last.dataset.page = this.pageNum;
+            _.setDataset(this.last, 'page', this.pageNum);
             ul.appendChild(this.next);
             ul.appendChild(this.last);
 
@@ -252,12 +257,15 @@ if (!window.App || typeof window.App !== 'object') {
                 this.last.className = '';
             }
 
-            this.prev.dataset.page = this.current - 1;
-            this.next.dataset.page = this.current + 1;
+            // this.prev.dataset.page = this.current - 1;
+            // this.next.dataset.page = this.current + 1;
+            _.setDataset(this.prev, 'page', this.current - 1);
+            _.setDataset(this.next, 'page', this.current + 1);
 
             this.nNums.forEach(function (nNum) {
                 nNum.className = '';
-                if (this.current === parseInt(nNum.dataset.page)) {
+                // if (this.current === parseInt(nNum.dataset.page)) {
+                if (this.current === parseInt(_.getDataset(nNum, 'page'))) {
                     nNum.className = 'active';
                 }
             }.bind(this));
@@ -267,7 +275,8 @@ if (!window.App || typeof window.App !== 'object') {
                 var nNum = e.target;
                 //如果已经是disabled或active状态，则不操作
                 if (nNum.className === 'disabled' || nNum.className === 'active') return;
-                this.current = parseInt(nNum.dataset.page);
+                // this.current = parseInt(nNum.dataset.page);
+                this.current = parseInt(_.getDataset(nNum, 'page'));
                 //判断是否需要翻页
                 if (this.current < this.startNum || this.current >= this.startNum + this.showNum) {
                     this.render();
@@ -420,14 +429,15 @@ if (!window.App || typeof window.App !== 'object') {
     WorksList.prototype.addEvent = function () {
         //给编辑和删除图标添加点击事件
         var self = this;
-        this.worksContainer.addEventListener('click', function (e) {
-            var target = e.target;
+        this.worksContainer.addEventListener('click', function (event) {
+            var target = event.target;
             if (_.hasClass(target, 'u-icon')) {
                 var nWork = target.parentNode.parentNode;
                 var nName = nWork.querySelector('h3');
                 var options = {
                     name: nName.innerHTML,
-                    id: parseInt(nWork.dataset.id)
+                    // id: parseInt(nWork.dataset.id)
+                    id: parseInt(_.getDataset(nWork, 'id'))
                 };
                 if (_.hasClass(target, 'u-icon-delete')) {
                     self.deleteWorks(options);

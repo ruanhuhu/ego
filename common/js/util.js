@@ -220,6 +220,55 @@
         }
     };
 
+    /**
+     * 描述：兼容ie，获取 dataset 的某属性值, 不区分大小写
+     * 参数：
+     *      ele: Element
+     *      name: 'data-' 之后的字符串, 如'data-index'只需传入'index'
+     * 返回值：对应属性的字符串类型值
+     **/
+    _.getDataset = function (ele, name) {
+        // 先转换成小写
+        name = name.toLowerCase();
+
+        if (ele.dataset) {
+            if (name.split('-').length > 1) {
+                // 驼峰化 date-of-birth -> dateOfBirth
+                name = name.replace(/-([^-]*)/g, function (match, string) {
+                    return string[0].toUpperCase() + string.slice(1);
+                });
+            }
+            return ele.dataset[name];
+        } else {
+            return ele.getAttribute('data-' + name);
+        }
+    };
+
+    /**
+     * 描述：兼容ie，设置 dataset 的某属性值，不区分大小写
+     * 参数：
+     *      ele: Element
+     *      name: 'data-' 之后的字符串, 如'data-index'只需传入'index'
+     *      value: 设置的属性值
+     * 返回值：对应属性的字符串类型值
+     **/
+    _.setDataset = function (ele, name, value) {
+        // 先转换成小写
+        name = name.toLowerCase();
+
+        if (ele.dataset) {
+            if (name.split('-').length > 1) {
+                // 驼峰化 date-of-birth -> dateOfBirth
+                name = name.replace(/-([^-]*)/g, function (match, string) {
+                    return string[0].toUpperCase() + string.slice(1);
+                });
+            }
+            ele.dataset[name] = value;
+        } else {
+            ele.setAttribute('data-' + name, value);
+        }
+    };
+
     global._ = _;
 
 })(window);
