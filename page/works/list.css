@@ -5,9 +5,15 @@
     background: url(../../res/images/mywork_banner.jpg) 50%/100% 100% no-repeat;
 }
 
+.g-body-wrap{
+    width: 950px;
+    margin: 0 auto;
+}
+
 .g-body {
     width: 750px;
-    margin: 0 auto 48px;
+    /*margin: 0 auto 48px;*/
+    margin: 0 100px 48px;
     background: #fff;
     -webkit-box-shadow: 3px 3px 7px rgb(185, 185, 185);
     box-shadow: 3px 3px 7px rgb(185, 185, 185);
